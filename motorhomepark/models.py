@@ -48,7 +48,8 @@ class Booking(models.Model):
     date_leave = models.DateField()
     adults_num = models.IntegerField()
     child_num = models.IntegerField()
-    slug = models.SlugField(max_length=250)
+    slug = models.SlugField(max_length=250, unique=True)
+    confirmed = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-date_arrive']
