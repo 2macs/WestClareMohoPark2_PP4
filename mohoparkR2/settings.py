@@ -19,7 +19,16 @@ if os.path.isfile('env.py'):
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = [os.path.join(BASE_DIR, 'templates')]
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
+# System constants
+GLOBAL_SETTINGS = {
+   'CAPACITY': '10',
+   'ADULT_COST': '17',
+   'EXTRA_ADULT': '5',
+   'CHILD': '3',
+   'EHU': '3'
+}
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,7 +40,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['motorhome-park-pp4.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['motorhome-park-pp4.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -126,9 +135,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = [os.path.join(BASE_DIR, 'staticfiles')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = 'media'
+MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
