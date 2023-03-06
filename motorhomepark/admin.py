@@ -27,5 +27,4 @@ class CommentManage(admin.ModelAdmin):
     display_all = ['creator', 'slug', 'created_on', 'approved']
     list_filter = ['creator', 'created_on', 'approved']
     search_fields = ['creator', 'created on', 'email']
-    prepopulated_fields = {'slug': ('creator', )}
     date_hierarchy = 'created_on'

@@ -12,8 +12,8 @@ class EnquiryForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = MakeComment
-        fields = ['creator', 'email', 'comment_message', 'approved', 
-                  'created_on']
+        fields = ['creator', 'email', 'comment_message', 'created_on', 
+                  'approved']
 
 
 class BookingForm(forms.ModelForm):
