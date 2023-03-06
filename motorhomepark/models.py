@@ -19,20 +19,19 @@ class MakeEnquiry(models.Model):
     class Meta:
         ordering = ['-date_submitted']
         indexes = [models.Index(fields=['-date_submitted']),]
-    
+
     def __str__(self):
         return self.heading
-           
+
 
 # Model for comments form
 class MakeComment(models.Model):
-    creator = models.ForeignKey(User, on_delete=models.CASCADE, 
+    creator = models.ForeignKey(User, on_delete=models.CASCADE,
                                 related_name='site_comments')
     email = models.EmailField()
     comment_message = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
-    
 
     class Meta:
         ordering = ["created_on"]
@@ -55,6 +54,6 @@ class Booking(models.Model):
     class Meta:
         ordering = ['-date_arrive']
         indexes = [models.Index(fields=['-date_arrive']),]
-    
+
     def __str__(self):
         return f"Booking by {self.name}, arriving {self.date_arrive}"

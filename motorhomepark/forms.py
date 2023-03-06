@@ -12,7 +12,7 @@ class EnquiryForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = MakeComment
-        fields = ['creator', 'email', 'comment_message', 'created_on', 
+        fields = ['creator', 'email', 'comment_message', 'created_on',
                   'approved']
 
 
@@ -21,8 +21,3 @@ class BookingForm(forms.ModelForm):
         model = Booking
         fields = ['name', 'email', 'date_arrive', 'date_leave', 'adults_num',
                   'child_num', 'slug', 'confirmed']
-
-
-
-
-
