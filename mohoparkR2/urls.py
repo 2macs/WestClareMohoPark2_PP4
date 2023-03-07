@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from motorhomepark.views import (get_enquiry_form, get_booking_form,
+                                 get_explore_form, get_index_form,
+                                 get_comment_form)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', get_index_form, name='get_index_form'),
+    path('enquiry/', get_enquiry_form, name='get_enquiry_form'),
+    path('explore/', get_explore_form, name='get_explore_form'),
+    path('booking/', get_booking_form, name='get_booking_form'),
+    path('comment/', get_comment_form, name='get_comment_form'),
 ]
