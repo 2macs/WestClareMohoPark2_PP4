@@ -5,11 +5,11 @@ from django.shortcuts import render
 
 
 def get_enquiry_form(request):
-    return render(request, 'templates/enquire.html')
+    return render(request, 'enquire.html')
 
 
 def get_booking_form(request):
-    return render(request, 'templates/booking.html')
+    return render(request, 'booking.html')
 
 
 def get_index_form(request):
@@ -17,8 +17,8 @@ def get_index_form(request):
 
 
 def get_explore_form(request):
-    return render(request, 'templates/explore.html')
+    return render(request, 'explore.html')
 
 
 def get_comment_form(request):
-    return render(request, 'templates/comment.html')
+    return render(request, 'comment.html')
