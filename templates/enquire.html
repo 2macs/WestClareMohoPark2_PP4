@@ -1,8 +1,25 @@
 {% extends 'base.html' %}
 
-{% block content %}
 
-  <h1>This text is in the enquire form only</h1>
+
+{% block content %}
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <h1>Contact Us</h1>
+  <p><i class="fa-solid fa-phone"></i> +353-87-1111999</p> 
+  <p><i class="fa-regular fa-envelope"></i> claremohosite.ie</p> 
+</div>
+
+<div class="container-fluid text-center eform">
+  <h1>Make an Enquiry</h1>
+  <div class="form-group row center-text">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit Enquiry</button>    
+    </form> 
+  </div>
   
+</div>
 
   {% endblock %}
+  

@@ -5,15 +5,13 @@ from django import forms
 class EnquiryForm(forms.ModelForm):
     class Meta:
         model = MakeEnquiry
-        fields = ['name', 'email', 'heading', 'slug', 'message_body',
-                  'auto_acknowledge', 'date_submitted']
+        fields = ['name', 'email', 'heading', 'message_body']
 
 
 class CommentForm(forms.ModelForm):
     class Meta:
         model = MakeComment
-        fields = ['creator', 'email', 'comment_message', 'created_on',
-                  'approved']
+        fields = ['creator', 'email', 'comment_message', 'approved']
 
 
 class BookingForm(forms.ModelForm):
