@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 
-
-
 {% block content %}
 <div class="container-fluid p-5 bg-primary text-white text-center">
   <h1>Contact Us</h1>
@@ -9,17 +7,22 @@
   <p><i class="fa-regular fa-envelope"></i> claremohosite.ie</p> 
 </div>
 
-<div class="container-fluid text-center eform">
-  <h1>Make an Enquiry</h1>
-  <div class="form-group row center-text">
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Submit Enquiry</button>    
-    </form> 
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3 text-center">
+      <h1 >Make an Enquiry</h1>
+    </div>
   </div>
-  
+  <div class="row">
+    <div class="col-sm-6  offset-sm-3 text-center">
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Enquiry</button>    
+      </form> 
+    </div>
+  </div>
 </div>
 
-  {% endblock %}
+{% endblock %}
   

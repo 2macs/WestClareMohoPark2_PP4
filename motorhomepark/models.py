@@ -21,7 +21,7 @@ class MakeEnquiry(models.Model):
         indexes = [models.Index(fields=['-date_submitted']),]
 
     def __str__(self):
-        return self.heading
+        return f"Comment {self.heading} by {self.name} on {self.date_submitted}"
 
 
 # Model for comments form
