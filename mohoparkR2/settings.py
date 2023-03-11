@@ -33,11 +33,11 @@ GLOBAL_SETTINGS = {
 
 # Email service
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.mail.yahoo.com'
-EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 8000
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'adrianmcneill866@yahoo.com'
-EMAIL_HOST_PASSWORD = '!ScoobyDoobyDoo!'
+EMAIL_HOST_USER = 'amcneill83@gmail.com'
+EMAIL_HOST_PASSWORD = 'ocubybrnokkckfxl'
 
 
 # Quick-start development settings - unsuitable for production

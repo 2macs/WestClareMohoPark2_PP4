@@ -24,7 +24,7 @@ def get_enquiry_form(request):
             to_owner = [email_source, ]
             send_mail(subject, email_response, email_source, send_list)
             send_mail(subject, message_to_owner, email_source, to_owner)
-            return redirect('/index/')
+            return redirect('index/')
     else:
         form = EnquiryForm()
     return render(request, 'enquire.html/', {'form': form})
