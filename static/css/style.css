@@ -12,3 +12,7 @@ footer {
 .eform {
     background-color: #F5F5F5;
 }
+
+.enq-form label {
+    display: block;
+}

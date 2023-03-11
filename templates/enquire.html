@@ -14,8 +14,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-6  offset-sm-3 text-center">
-      <form method="post">
+    <div class="col-sm-6  mx-auto">
+      <form class= "enq-form" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Submit Enquiry</button>    

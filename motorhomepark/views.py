@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from .forms import EnquiryForm
+from mohoparkR2 import settings
+from django.core.mail import send_mail
+
 
 # Create your views here.
 # Templates are Index, booking,enquire,explore
@@ -10,7 +13,18 @@ def get_enquiry_form(request):
         form = EnquiryForm(request.POST)
         if form.is_valid():
             form.save()
-            # put email logic here ?
+            # put email logic here
+            email = request.POST['email']
+            user_name = request.POST['name']
+            email_source = settings.EMAIL_HOST_USER
+            subject = f'Your Enquiry to West Clare Motorhome Park'
+            email_response = f'Hi {email}, thank you for your enquiry, we will respond as soon as possible!'
+            message_to_owner = f'Hi, you have received an enquiry from {user_name}, please check your admin page'
+            send_list = [email, ]
+            to_owner = [email_source, ]
+            send_mail(subject, email_response, email_source, send_list)
+            send_mail(subject, message_to_owner, email_source, to_owner)
+            return redirect('/index/')
     else:
         form = EnquiryForm()
     return render(request, 'enquire.html/', {'form': form})
