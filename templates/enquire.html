@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <div class="container-fluid p-5 bg-primary text-white text-center">
   <h1>Contact Us</h1>
   <p><i class="fa-solid fa-phone"></i> +353-87-1111999</p> 
@@ -18,11 +19,11 @@
       <form class= "enq-form" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Submit Enquiry</button>    
+        <button type="submit" id = "enq-button" onclick="test();">Submit Enquiry</button>           
       </form> 
+         
     </div>
   </div>
 </div>
-
 {% endblock %}
   

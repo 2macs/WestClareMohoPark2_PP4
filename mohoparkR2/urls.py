@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from motorhomepark.views import (get_enquiry_form, get_booking_form,
                                  get_explore_form, get_index_form,
-                                 get_comment_form)
+                                 get_comment_form, get_confirm_form)
 
 
 urlpatterns = [
@@ -28,4 +28,5 @@ urlpatterns = [
     path('explore/', get_explore_form, name='get_explore_form'),
     path('booking/', get_booking_form, name='get_booking_form'),
     path('comment/', get_comment_form, name='get_comment_form'),
+    path('confirm/', get_confirm_form, name='get_confirm_form')
 ]
