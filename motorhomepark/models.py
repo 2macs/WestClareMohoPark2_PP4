@@ -43,7 +43,7 @@ class MakeComment(models.Model):
 # Model for Bookings form
 class Booking(models.Model):
     name = models.ForeignKey(User, on_delete=models.CASCADE,
-                                related_name='booking_owner')
+                             related_name='booking_owner')
     email = models.EmailField()
     date_arrive = models.DateField()
     date_leave = models.DateField()
@@ -69,9 +69,9 @@ class SiteCapacity(models.Model):
     ]
     booking_date = models.DateField()
     slots_used = models.IntegerField()
-    person = models.ForeignKey(Booking, on_delete=models.CASCADE, blank=True, 
-                               null=True)
-    order_status = models.CharField(choices=STATUS_CHOICES, default='draft', max_length=10)    
+    person = models.ForeignKey(Booking, on_delete=models.CASCADE, related_name='booking_owner')
+    order_status = models.CharField(choices=STATUS_CHOICES, default='draft',
+                                    max_length=10)    
 
     class Meta:
         ordering = ['booking_date', 'order_status']

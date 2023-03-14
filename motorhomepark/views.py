@@ -7,15 +7,16 @@ from mohoparkR2 import settings
 # Templates are Index, booking,enquire,explore
 
 def get_enquiry_form(request):
-    
+    sent = 0
     if request.method == 'POST':
         form = EnquiryForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('get_confirm_form')
+            sent = 1
+            # return redirect('get_confirm_form')
     else:
         form = EnquiryForm()
-    return render(request, 'enquire.html/', {'form': form})
+    return render(request, 'enquire.html/', {'form': form, 'sent': sent})
 
 
 def get_booking_form(request):

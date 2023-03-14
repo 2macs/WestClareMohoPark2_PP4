@@ -8,6 +8,15 @@
   <p><i class="fa-regular fa-envelope"></i> claremohosite.ie</p> 
 </div>
 
+{% if sent == 1 %}
+  <div class="jumbotron  text-center">
+    <h1 class="display-4">Your Enquiry!</h1>
+    <p class="lead">Thank you for your enquiry, we will respond asap</p>
+    <a class="btn btn-primary btn-lg" href="/ " role="button">Ok</a>
+    <hr class="my-4">
+  </div>
+  {% endif %}
+
 <div class="container">
   <div class="row">
     <div class="col-sm-6 offset-sm-3 text-center">
@@ -23,15 +32,7 @@
       </form>         
     </div>
   </div>
-  {% if sent == 1 %}
-  <div class="jumbotron  text-center">
-    <h1 class="display-4">Hello World!</h1>
-    <p class="lead">This is a jumbotron component</p>
-    <hr class="my-4">
-    <p class="lead">A chance to learn more about jumbotron</p>
-    <a class="btn btn-primary btn-lg" href="/ " role="button">Ok</a>
-  </div>
-  {% endif %}
+  
 </div>
 {% endblock %}
   
