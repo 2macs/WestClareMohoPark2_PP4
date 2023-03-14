@@ -42,7 +42,8 @@ class MakeComment(models.Model):
 
 # Model for Bookings form
 class Booking(models.Model):
-    name = models.CharField(max_length=80)
+    name = models.ForeignKey(User, on_delete=models.CASCADE,
+                                related_name='booking_owner')
     email = models.EmailField()
     date_arrive = models.DateField()
     date_leave = models.DateField()
@@ -57,3 +58,26 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking by {self.name}, arriving {self.date_arrive}"
+
+
+# model for the site capacity
+class SiteCapacity(models.Model):
+    STATUS_CHOICES = [
+        ('draft', 'Draft'),
+        ('confirm', 'Confirm'),
+        ('cancel', 'Cancel'),
+    ]
+    booking_date = models.DateField()
+    slots_used = models.IntegerField()
+    person = models.ForeignKey(Booking, on_delete=models.CASCADE, blank=True, 
+                               null=True)
+    order_status = models.CharField(choices=STATUS_CHOICES, default='draft', max_length=10)    
+
+    class Meta:
+        ordering = ['booking_date', 'order_status']
+        indexes = [models.Index(fields=['booking_date', 'order_status', 
+                   'slots_used']),]
+
+    def __str__(self):
+        return f"Date of booking {self.booking_date}, booked by {self.person}, status is {self.order_status}"
+
