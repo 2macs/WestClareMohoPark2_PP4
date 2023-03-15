@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import EnquiryForm
+from .forms import EnquiryForm, BookingForm
 from mohoparkR2 import settings
 
 
@@ -13,14 +13,15 @@ def get_enquiry_form(request):
         if form.is_valid():
             form.save()
             sent = 1
-            # return redirect('get_confirm_form')
+            
     else:
         form = EnquiryForm()
     return render(request, 'enquire.html/', {'form': form, 'sent': sent})
 
 
 def get_booking_form(request):
-    return render(request, 'booking.html')
+    form = BookingForm()
+    return render(request, 'booking.html', {'form': form})
 
 
 def get_index_form(request):

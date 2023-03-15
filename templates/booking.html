@@ -2,7 +2,30 @@
 
 {% block content %}
 
-  <h1>This is the booking form</h1>
+<div class="container-fluid p-2 bg-primary text-white text-center">
+  <h1>Book with us!</h1>
+  <p >To make a booking please Login</p>
+  <p><i class="fa-solid fa-phone"></i> +353-87-1111999</p> 
+  <p><i class="fa-regular fa-envelope"></i> claremohosite.ie</p> 
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3 text-center">
+      <h1 >Booking Form</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6  mx-auto">
+      <form class= "book-form" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" id = "book-button" >Check Availability</button>           
+      </form>         
+    </div>
+  </div>
+  
+</div>
   
 
 {% endblock %}
