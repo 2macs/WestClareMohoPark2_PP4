@@ -11,7 +11,7 @@ class MakeEnquiry(models.Model):
     name = models.CharField(max_length=75)
     email = models.EmailField()
     heading = models.CharField(max_length=250)
-    slug = models.SlugField(max_length=250)
+    slug = models.SlugField(max_length=250, unique=True)
     message_body = models.TextField()
     auto_acknowledge = models.BooleanField(default=False)
     date_submitted = models.DateTimeField(auto_now=True)
@@ -42,8 +42,7 @@ class MakeComment(models.Model):
 
 # Model for Bookings form
 class Booking(models.Model):
-    name = models.ForeignKey(User, on_delete=models.CASCADE,
-                             related_name='booking_owner')
+    name = models.ForeignKey(User, on_delete=models.CASCADE, related_name="booking_owner")
     email = models.EmailField()
     date_arrive = models.DateField()
     date_leave = models.DateField()
@@ -67,9 +66,9 @@ class SiteCapacity(models.Model):
         ('confirm', 'Confirm'),
         ('cancel', 'Cancel'),
     ]
+    
     booking_date = models.DateField()
     slots_used = models.IntegerField()
-    person = models.ForeignKey(Booking, on_delete=models.CASCADE, related_name='booking_owner')
     order_status = models.CharField(choices=STATUS_CHOICES, default='draft',
                                     max_length=10)    
 
