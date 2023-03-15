@@ -12,8 +12,7 @@ def get_enquiry_form(request):
         form = EnquiryForm(request.POST)
         if form.is_valid():
             form.save()
-            sent = 1
-            
+            sent = 1            
     else:
         form = EnquiryForm()
     return render(request, 'enquire.html/', {'form': form, 'sent': sent})

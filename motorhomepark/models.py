@@ -56,7 +56,7 @@ class Booking(models.Model):
         indexes = [models.Index(fields=['-date_arrive']),]
 
     def __str__(self):
-        return f"Booking by {self.name}, arriving {self.date_arrive}"
+        return f"Booking by {self.name_id}, arriving {self.date_arrive}"
 
 
 # model for the site capacity
@@ -78,5 +78,5 @@ class SiteCapacity(models.Model):
                    'slots_used']),]
 
     def __str__(self):
-        return f"Date of booking {self.booking_date}, booked by {self.person}, status is {self.order_status}"
+        return f"Date of booking {self.booking_date}, slots used {self.slots_used}, status is {self.order_status}"
 
