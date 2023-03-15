@@ -42,7 +42,7 @@ class MakeComment(models.Model):
 
 # Model for Bookings form
 class Booking(models.Model):
-    name = models.ForeignKey(User, on_delete=models.CASCADE, related_name="booking_owner")
+    name = models.CharField(max_length=75)
     email = models.EmailField()
     date_arrive = models.DateField()
     date_leave = models.DateField()
@@ -56,7 +56,7 @@ class Booking(models.Model):
         indexes = [models.Index(fields=['-date_arrive']),]
 
     def __str__(self):
-        return f"Booking by {self.name_id}, arriving {self.date_arrive}"
+        return f"Booking by {self.name}, arriving {self.date_arrive}"
 
 
 # model for the site capacity
