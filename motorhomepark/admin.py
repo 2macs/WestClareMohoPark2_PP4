@@ -9,7 +9,6 @@ class EnquiryManage(admin.ModelAdmin):
     display_all = ['heading', 'slug', 'name', 'date_submitted']
     list_filter = ['date_submitted', 'name', 'heading']
     search_fields = ['heading', 'message_body']
-    prepopulated_fields = {'slug': ('heading', )}
     date_hierarchy = 'date_submitted'
 
 

@@ -11,7 +11,6 @@ class MakeEnquiry(models.Model):
     name = models.CharField(max_length=75)
     email = models.EmailField()
     heading = models.CharField(max_length=250)
-    slug = models.SlugField(max_length=250, unique=True)
     message_body = models.TextField()
     auto_acknowledge = models.BooleanField(default=False)
     date_submitted = models.DateTimeField(auto_now=True)
