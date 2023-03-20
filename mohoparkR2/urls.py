@@ -22,5 +22,5 @@ from motorhomepark import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('motorhomepark.urls'), name='motorhomepark_urls'),
-    path('account/', include('allauth.urls')),
+    path('accounts/', include('allauth.urls')),
 ]

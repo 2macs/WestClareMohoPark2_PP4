@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import EnquiryForm, BookingForm
+from django.contrib.auth.decorators import login_required
 from mohoparkR2 import settings
 
 
@@ -16,6 +17,7 @@ def get_enquiry_form(request):
     else:
         form = EnquiryForm()
     return render(request, 'enquire.html/', {'form': form, 'sent': sent})
+
 
 
 def get_booking_form(request):

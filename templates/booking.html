@@ -2,6 +2,9 @@
 
 {% block content %}
 
+
+{% if user.is_authenticated %}
+
 <div class="container-fluid p-2 bg-primary text-white text-center">
   <h1>Book with us!</h1>
   <p >To make a booking please Login</p>
@@ -23,9 +26,17 @@
         <button type="submit" id = "book-button" >Check Availability</button>           
       </form>         
     </div>
-  </div>
-  
+  </div>  
 </div>
-  
+
+{% else %}
+<div class="jumbotron  text-center bg-light border-rounded">
+  <h1 class="display-4">Make a Booking!</h1>
+  <p class="lead">In order to make a booking please sign up or login <a href="{% url 'account_login' %}"> here</a> first! Thank you!</p>
+<a class="btn btn-primary btn-lg" href="{{ '/' }}" role="button">Ok</a>
+  <hr class="my-4">
+</div>
+
+{% endif %}
 
 {% endblock %}
