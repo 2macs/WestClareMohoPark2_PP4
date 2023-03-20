@@ -22,7 +22,7 @@ def get_enquiry_form(request):
 
 def get_booking_form(request):
     form = BookingForm()
-    return render(request, 'booking.html', {'form': form})
+    return render(request, 'booking.html/', {'form': form})
 
 
 def get_index_form(request):

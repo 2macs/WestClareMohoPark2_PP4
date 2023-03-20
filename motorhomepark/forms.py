@@ -18,4 +18,4 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ['name', 'email', 'date_arrive', 'date_leave', 'adults_num',
-                  'child_num', 'slug', 'confirmed']
+                  'child_num']
