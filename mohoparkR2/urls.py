@@ -23,4 +23,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('motorhomepark.urls'), name='motorhomepark_urls'),
     path('accounts/', include('allauth.urls')),
-]
+    ]

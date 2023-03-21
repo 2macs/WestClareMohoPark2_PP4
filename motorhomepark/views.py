@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import EnquiryForm, BookingForm
 from django.contrib.auth.decorators import login_required
 from django.views import generic
 from mohoparkR2 import settings
+from motorhomepark.models import Booking
 
 
 # Create your views here.
@@ -48,8 +49,15 @@ def get_confirm_form(request):
 
 
 def get_cancel_booking_form(request):
-    return render(request, 'cancel_booking.html')
-
-
-
-
+    user_name = request.user.username
+     # Retrieve all Booking records of the logged-in user
+    bookings = Booking.objects.filter(email=user_name)
+    print(user_name)
+    
+    if request.method == 'POST':
+        booking_id = request.POST.get('id')
+        booking = Booking.objects.get(id=id)
+        booking.delete()
+        return redirect('get_booking_form')
+    # Render the template with the list of Booking records
+    return render(request, 'cancel_booking.html', {'bookings': bookings})

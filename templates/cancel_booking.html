@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+    <h1>Booking List</h1>
+    <ul>
+    {% for booking in bookings %}
+        <li>
+            {{ booking }}
+            <form method="post" action="{% url 'get_cancel_booking_form' %}">
+                {% csrf_token %}
+                <input type="hidden" name="booking_id" value="{{ booking.id }}">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    {% empty %}
+        <li>No bookings found.</li>
+    {% endfor %}
+    </ul>
 {% endblock %}
 
