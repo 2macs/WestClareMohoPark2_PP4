@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import EnquiryForm, BookingForm
 from django.contrib.auth.decorators import login_required
+from django.views import generic
 from mohoparkR2 import settings
 
 
@@ -19,9 +20,14 @@ def get_enquiry_form(request):
     return render(request, 'enquire.html/', {'form': form, 'sent': sent})
 
 
-
+# Create a booking
 def get_booking_form(request):
-    form = BookingForm()
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = BookingForm()
     return render(request, 'booking.html/', {'form': form})
 
 
@@ -39,6 +45,11 @@ def get_comment_form(request):
 
 def get_confirm_form(request):
     return render(request, 'confirm.html')
+
+
+def get_cancel_booking_form(request):
+    return render(request, 'cancel_booking.html')
+
 
 
 

@@ -1,7 +1,9 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.conf import settings
+
 
 # Create your models here. These models will be translated to tables in DB
 
@@ -47,7 +49,7 @@ class Booking(models.Model):
     date_leave = models.DateField()
     adults_num = models.IntegerField()
     child_num = models.IntegerField()
-    slug = models.SlugField(max_length=250, unique=True)
+    slug = models.SlugField(max_length=250, null=True)
     confirmed = models.BooleanField(default=False)
 
     class Meta:
@@ -56,6 +58,9 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking by {self.name}, arriving {self.date_arrive}"
+    
+    def get_absolute_url(self):
+        return reverse("get_booking_form", kwargs={"slug": self.slug}) 
 
 
 # model for the site capacity
