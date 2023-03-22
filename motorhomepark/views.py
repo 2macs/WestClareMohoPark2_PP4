@@ -49,11 +49,13 @@ def get_confirm_form(request):
     return render(request, 'confirm.html')
 
 
+# Delete a booking
 def get_cancel_booking_form(request):
     user_name = request.user.username
-     # Retrieve all Booking records of the logged-in user
+
+    # Retrieve all Booking records of the logged-in user
     bookings = Booking.objects.filter(email=user_name)
-    print(user_name)
+    
     if request.method == 'POST':
         mybooking = request.POST.get('booking_id')
         booking = Booking.objects.get(id=mybooking)
@@ -61,3 +63,9 @@ def get_cancel_booking_form(request):
         return redirect('get_booking_form')
     # Render the template with the list of Booking records
     return render(request, 'cancel_booking.html', {'bookings': bookings})
+
+# Modify a booking
+def get_modify_booking_form(request):
+    return render(request, 'modify_booking.html')
+
+

@@ -1,7 +1,8 @@
 from motorhomepark.views import (get_enquiry_form, get_booking_form,
                                  get_explore_form, get_index_form,
                                  get_comment_form, get_confirm_form, 
-                                 get_cancel_booking_form)
+                                 get_cancel_booking_form, 
+                                 get_modify_booking_form)
 from django.urls import path, include
 
 
@@ -14,5 +15,7 @@ urlpatterns = [
      path('confirm/', get_confirm_form, name='get_confirm_form'),
      path('cancel_booking', get_cancel_booking_form,
           name='get_cancel_booking_form'),
+     path('modify_booking', get_modify_booking_form,
+          name='get_modify_booking_form'),
      path("accounts/", include("allauth.urls")),
-]
+     ]
