@@ -28,7 +28,8 @@ def get_booking_form(request):
         if form.is_valid():
             form.save()
     else:
-        form = BookingForm()
+        initial = {'email':request.user.username}
+        form = BookingForm(initial=initial)
     return render(request, 'booking.html/', {'form': form})
 
 
