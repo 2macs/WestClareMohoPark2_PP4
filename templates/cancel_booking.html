@@ -8,6 +8,7 @@
             {{ booking }}
             <form method="post" action="{% url 'get_cancel_booking_form' %}">
                 {% csrf_token %}
+                <p style="color:red;"><strong>Are you sure you want to delete? This cannot be undone!</strong></p>
                 <input type="hidden" name="booking_id" value="{{ booking.id }}">
                 <button type="submit">Delete</button>
             </form>
