@@ -64,8 +64,21 @@ def get_cancel_booking_form(request):
     # Render the template with the list of Booking records
     return render(request, 'cancel_booking.html', {'bookings': bookings})
 
-# Modify a booking
-def get_modify_booking_form(request):
-    return render(request, 'modify_booking.html')
 
+# Modify a booking
+def get_modify_booking_form(request, booking_id):
+    
+    # get the record with the same ID as that selected on the form
+    booking = get_object_or_404(Booking, id=booking_id)
+    
+    if request.method == 'POST':        
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+        return redirect('get_booking_form')
+    else:
+        form = BookingForm(instance=booking)
+        context = {'form': form}
+
+    return render(request, 'modify_booking.html/', context)
 
