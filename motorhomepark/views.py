@@ -53,10 +53,9 @@ def get_cancel_booking_form(request):
      # Retrieve all Booking records of the logged-in user
     bookings = Booking.objects.filter(email=user_name)
     print(user_name)
-    
     if request.method == 'POST':
-        booking_id = request.POST.get('id')
-        booking = Booking.objects.get(id=id)
+        mybooking = request.POST.get('booking_id')
+        booking = Booking.objects.get(id=mybooking)
         booking.delete()
         return redirect('get_booking_form')
     # Render the template with the list of Booking records
