@@ -3,6 +3,8 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.conf import settings
+from django.utils import timezone
+from django.core.exceptions import ValidationError
 
 
 # Create your models here. These models will be translated to tables in DB
@@ -41,27 +43,42 @@ class MakeComment(models.Model):
         return f"Comment {self.comment_message} by {self.creator}"
 
 
+def validate_date(date):
+    if date < timezone.now().date():
+        raise ValidationError("Arrival date cannot be in the past")
+
+
 # Model for Bookings form
 class Booking(models.Model):
+    # def clean(self):
+    #     cleaned_data = super().clean()
+    #     date_arrive = cleaned_data.get("date_arrive")
+    #     date_leave = cleaned_data.get("date_leave")
+
+    #     if date_leave < date_arrive:
+    #         raise ValidationError("Departure date should be after the arrival date.")
+        
+    #     return cleaned_data    
+
     name = models.CharField(max_length=75)
     email = models.EmailField()
-    date_arrive = models.DateField()
-    date_leave = models.DateField()
-    adults_num = models.IntegerField()
-    child_num = models.IntegerField()
+    date_arrive = models.DateField(blank=False, validators=[validate_date])
+    date_leave = models.DateField(blank=False)
+    adults_num = models.IntegerField(blank=False)
+    child_num = models.IntegerField(blank=False)
     slug = models.SlugField(max_length=250, null=True)
     confirmed = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-date_arrive']
-        indexes = [models.Index(fields=['-date_arrive']),]
+        indexes = [models.Index(fields=['-date_arrive']),]  
 
     def __str__(self):
         return f"Booking by {self.name}, arriving {self.date_arrive}"
     
     def get_absolute_url(self):
         return reverse("get_booking_form", kwargs={"slug": self.slug}) 
-
+    
 
 # model for the site capacity
 class SiteCapacity(models.Model):
@@ -83,4 +100,5 @@ class SiteCapacity(models.Model):
 
     def __str__(self):
         return f"Date of booking {self.booking_date}, slots used {self.slots_used}, status is {self.order_status}"
+
 

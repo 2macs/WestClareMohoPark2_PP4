@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.views import generic
 from mohoparkR2 import settings
 from motorhomepark.models import Booking
+from datetime import date, datetime
+from dateutil.rrule import rrule, DAILY
 
 
 # Create your views here.
@@ -25,7 +27,13 @@ def get_enquiry_form(request):
 def get_booking_form(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
+        
+        arrival_date = request.POST.get('date_arrive')
+        leave_date = request.POST.get('date_leave')
+        check_booking_dates(arrival_date, leave_date)
+
         if form.is_valid():
+
             form.save()
     else:
         initial = {'email':request.user.username}
@@ -80,4 +88,13 @@ def get_modify_booking_form(request, booking_id):
 
     return render(request, 'modify_booking.html', 
                   context)
+
+
+def check_booking_dates(start_date, end_date):
+    print(f'The check function was called with {start_date} and {end_date}')
+    start_date = datetime.date(start_date)
+    end_date = datetime.date(end_date)
+    time_delta = datetime.timedelta(days=1)
+    for d in rrule(DAILY, dtstart=start_date, until=end_date):
+        print(d.strftime("%Y-%m-%d"))
 
