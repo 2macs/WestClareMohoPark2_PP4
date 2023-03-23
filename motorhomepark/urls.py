@@ -15,7 +15,7 @@ urlpatterns = [
      path('confirm/', get_confirm_form, name='get_confirm_form'),
      path('cancel_booking', get_cancel_booking_form,
           name='get_cancel_booking_form'),
-     path('modify_booking/<int:booking_id>/', get_modify_booking_form,
+     path('modify_booking/<int:booking_id>', get_modify_booking_form,
           name='get_modify_booking_form'),     
      path("accounts/", include("allauth.urls")),
      ]
