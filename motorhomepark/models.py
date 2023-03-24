@@ -60,7 +60,7 @@ def validate_children(value):
 
 # Model for Bookings form
 class Booking(models.Model):
-    
+
     name = models.CharField(max_length=75)
     email = models.EmailField()
     date_arrive = models.DateField(blank=False, validators=[validate_date])
