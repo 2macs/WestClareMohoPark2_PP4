@@ -27,15 +27,18 @@ def get_enquiry_form(request):
 def get_booking_form(request):
     form = BookingForm(request.POST) 
     if request.method == 'POST':
-        arrival_date = request.POST.get('date_arrive')
+        arrival_date = (request.POST.get('date_arrive'))
+        date_object = datetime.strptime(arrival_date, '%m/%d/%Y').date()
         leave_date = request.POST.get('date_leave')
+        date_object2 = datetime.strptime(leave_date, '%m/%d/%Y').date()
+        print(f'arrival date is {date_object}, leave date is {date_object2}')
         # check_booking_dates(arrival_date, leave_date)
-
         if form.is_valid():
             form.save()
-        else:
-            initial = {'email':request.user.username}
-            form = BookingForm(initial=initial)
+            return redirect('/')
+    else:
+        initial = {'email':request.user.username}
+        form = BookingForm(initial=initial)
     return render(request, 'booking.html/', {'form': form})
 
 

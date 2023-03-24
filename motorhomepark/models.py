@@ -48,24 +48,25 @@ def validate_date(date):
         raise ValidationError("Arrival date cannot be in the past")
 
 
+def validate_adults(value):
+    if value < 1:
+        raise ValidationError("Number of adults cannot be less than 1")
+
+
+def validate_children(value):
+    if value < 0:
+        raise ValidationError("Number of children cannot be less than 0")
+
+
 # Model for Bookings form
 class Booking(models.Model):
-    # def clean(self):
-    #     cleaned_data = super().clean()
-    #     date_arrive = cleaned_data.get("date_arrive")
-    #     date_leave = cleaned_data.get("date_leave")
-
-    #     if date_leave < date_arrive:
-    #         raise ValidationError("Departure date should be after the arrival date.")
-        
-    #     return cleaned_data    
-
+    
     name = models.CharField(max_length=75)
     email = models.EmailField()
     date_arrive = models.DateField(blank=False, validators=[validate_date])
     date_leave = models.DateField(blank=False)
-    adults_num = models.IntegerField(blank=False)
-    child_num = models.IntegerField(blank=False)
+    adults_num = models.IntegerField(blank=False, validators=[validate_adults])
+    child_num = models.IntegerField(blank=False, validators=[validate_children])
     slug = models.SlugField(max_length=250, null=True)
     confirmed = models.BooleanField(default=False)
 
