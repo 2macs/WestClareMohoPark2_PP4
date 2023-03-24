@@ -25,19 +25,17 @@ def get_enquiry_form(request):
 
 # Create a booking
 def get_booking_form(request):
+    form = BookingForm(request.POST) 
     if request.method == 'POST':
-        form = BookingForm(request.POST)
-        
         arrival_date = request.POST.get('date_arrive')
         leave_date = request.POST.get('date_leave')
-        check_booking_dates(arrival_date, leave_date)
+        # check_booking_dates(arrival_date, leave_date)
 
         if form.is_valid():
-
             form.save()
-    else:
-        initial = {'email':request.user.username}
-        form = BookingForm(initial=initial)
+        else:
+            initial = {'email':request.user.username}
+            form = BookingForm(initial=initial)
     return render(request, 'booking.html/', {'form': form})
 
 
@@ -90,11 +88,11 @@ def get_modify_booking_form(request, booking_id):
                   context)
 
 
-def check_booking_dates(start_date, end_date):
-    print(f'The check function was called with {start_date} and {end_date}')
-    start_date = datetime.date(start_date)
-    end_date = datetime.date(end_date)
-    time_delta = datetime.timedelta(days=1)
-    for d in rrule(DAILY, dtstart=start_date, until=end_date):
-        print(d.strftime("%Y-%m-%d"))
+# def check_booking_dates(start_date, end_date):
+#     print(f'The check function was called with {start_date} and {end_date}')
+#     start_date = datetime.date(start_date)
+#     end_date = datetime.date(end_date)
+#     time_delta = datetime.timedelta(days=1)
+#     for d in rrule(DAILY, dtstart=start_date, until=end_date):
+#         print(d.strftime("%Y-%m-%d"))
 
