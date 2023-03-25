@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="West Clare Motorhome Park, Ireland">
+    <meta name="keywords" content="motorhome, motorhome park, clare, Ireland">
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -18,7 +20,7 @@
     </head>
 <body>
     <!-- Create a header to extend to all templates W3 schools example used, collapsible for mobile -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark py-lg-4">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark py-lg-4">
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'get_index_form' %}"><i class="fa-solid fa-caravan"></i> West Clare Motorhome Park</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -59,7 +61,7 @@
 
     {% endblock%}   
     
-    <footer class="container-fluid">
+    <footer class="container-fluid mt-2">
         <div class="row">
             <div class="col-sm-4">
                 <h5 class="uppercase general-sub">About Us</h5>
