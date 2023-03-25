@@ -2,13 +2,77 @@
 {% load static %}
 
 {% block content %}
-<div class="container-fluid mt-0 px-0">
+<div class="container-fluid px-0">
   <div class="row">
-    <div class="col">
-      <img src="{% static 'base_pic.png' %}" alt="site-view" class="site-view w-100 h-50">
+    <div class="col-lg-6">
+      <img src="{% static 'base_pic.png' %}" alt="site-view" class="site-view w-100 h-100">
+    </div>
+  
+    <div class="col-lg-6 pt-5">      
+          <h5 pt-5>Overview  <i class="fa-solid fa-wallet"></i></h5>
+          <p>Our Motorhome park was opened 12 months ago and in that short space of time has won numerous awards from tourism and International motorhome bodies. We are famous for our warm welcome and will help in any possible to make your stay as enjoyable as possible. The motorhome park is situated in a beautiful part of the Wild Atlantic mid way between 
+            Lahinch and Spanish Point. Our office opening hours are between 8am and 6pm daily, for earlier or later arrivals please call and special arrangements can be faciltated. 
+          </p>                  
     </div>
   </div>
-</div>  
+
+</div>
+
+
+
+<div class="row">
+  <div class="col-sm-4 mb-1">
+    <div class="card border-secondary">
+      <div class="card-body text-secondary">
+        <h5 class="card-title">Our Amenities <i class="fa-solid fa-campground"></i></h5>
+        <ul class="card-text">            
+            <li>Bathrooms - 24hr   <i class="fa-solid fa-restroom"></i></li>
+            <li>Showers - free   <i class="fa-solid fa-shower"></i></li>
+            <li>Wifi   <i class="fa-solid fa-wifi"></i></li>
+            <li>Dish washing area   <i class="fa-solid fa-plate-wheat"></i></li>
+            <li>Fresh water tap   <i class="fa-solid fa-faucet"></i></li>
+            <li>Grey water & chemical toilet   <i class="fa-solid fa-toilet"></i></li>
+            <li>Bars / Restaurants 10 mins walk <i class="fa-solid fa-utensils"></i></li>
+        </ul> 
+      </div>         
+    </div>
+  </div>
+      
+    <div class="col-sm-4 mb-1">
+      <div class="card border-primary">
+        <div class="card-body text-primary">
+          <h5 class="card-title">Rates  <i class="fa-solid fa-wallet"></i></h5>
+          <h3>Pricing 2023</h3>
+          <ul class="card-text">
+              <li>One Adult per night -           17 euro</li>
+              <li>Additional adult per night -    5 euro</li>
+              <li>Child (> 3 years) per night -   3 euro</li>
+              <li>16amp electrict per night -     3 euro</li>
+          </ul>
+        </div>  
+      </div>
+    </div>
+    
+
+    <div class="col-sm-4 mb-1">
+      <div class="card border-success">
+        <div class="card-body text-success">
+          <h5 class="card-title">Code of Conduct  <i class="fa-solid fa-people-group"></i></h5>
+          
+          <ul class="card-text">
+            <li>LEAVE NO TRACE!</li>
+            <li>This is an adult only park</li>
+            <li>Quiet time after 10pm</li>
+            <li>Dogs on a lead at all times</li>
+            <li>Fire pit only - no open fires</li>
+            <li>Accidents - please contact camp staff immediately</li>
+            <li>Visitors - please contact us in advance</li>
+          </ul>
+        </div>  
+      </div>
+    </div>
+  
+  </div>
 
 {% endblock %}
 

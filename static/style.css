@@ -32,6 +32,6 @@ footer {
     color: #23BBBB;
 }
 
-.site-view {    
-        object-fit: cover;     
+.site-view {        
+    vertical-align: top;
   }
