@@ -5,7 +5,6 @@ from django.views import generic
 from mohoparkR2 import settings
 from motorhomepark.models import Booking
 from datetime import date, datetime
-from dateutil.rrule import rrule, DAILY
 
 
 # Create your views here.
