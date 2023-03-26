@@ -3,10 +3,13 @@
 
 
 {% block content %}
-<h1>This text is in the explore form</h1>
+<div class="row text-center text-primary">
+  <h1><strong>Amazing places to visit nearby!</strong></h1>
+</div>
+
 <div class="row mt-2">
-  <div class="col-sm-4 mb-1">
-    <div class="card border-secondary">
+  <div class="col-lg-4 mb-1">
+    <div class="card border-secondary h-100">
       <img class="card-img-top" src="{% static 'cliffs.png' %}" alt="Cliffs of Moher">
       <div class="card-body text-secondary">
         <h5 class="card-title">Cliffs of Moher</h5>
@@ -25,8 +28,8 @@
     </div>
   </div>
       
-  <div class="col-sm-4 mb-1">
-    <div class="card border-primary">
+  <div class="col-lg-4 mb-1">
+    <div class="card border-primary h-100">
       <img class="card-img-top" src="{% static 'surfer.png' %}" alt="Surfer at Lahinch">
       <div class="card-body text-primary">
         <h5 class="card-title">Surfing in Lahinch</h5>
@@ -43,22 +46,19 @@
     </div>
   </div>   
 
-  <div class="col-sm-4">
+  <div class="col-lg-4">
     <div class="card border-success">
       <img class="card-img-top" src="{% static 'burren.png' %}" alt="Surfer at Lahinch">
-      <div class="card-body text-success">
+      <div class="card-body text-success h-100">
         <h5 class="card-title">Burren Adventure Center</h5>
         <p>The Burren Outdoor Education & Training Centre was established by Co. Clare VEC in the early 1980’s. It is
           now run under the aegis of Limerick and Clare Education and Training Board. It is a purpose built and fully
           equipped centre, situated amidst curved limestone hills and provides quality outdoor education and adventure
           experiences to participants of all ages. Outdoor education promotes cooperation and teamwork, offers challenge
           and adventure and explores potential, achievement and life long learning.
-          Hostel style accommodation is available. In one section there are 2 dormitories with 16 beds in each and 2
-          single rooms for leaders; and the other section there are 5 rooms with 4 beds and 1 twin room. Free wifi is
-          available throughout the building.          
-
-          For more information check out <a href="https://burrenoec.com/" target="_blank"
-            rel="noopener">Burren Education Centre</a>.
+          Hostel style accommodation is available. Free wifi is
+          available throughout the building. For more information check out <a href="https://burrenoec.com/"
+            target="_blank" rel="noopener">Burren Education Centre</a>.
         </p>
       </div>  
     </div>
