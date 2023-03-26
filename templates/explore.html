@@ -1,8 +1,72 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block content %}
+<h1>This text is in the explore form</h1>
+<div class="row mt-2">
+  <div class="col-sm-4 mb-1">
+    <div class="card border-secondary">
+      <img class="card-img-top" src="{% static 'cliffs.png' %}" alt="Cliffs of Moher">
+      <div class="card-body text-secondary">
+        <h5 class="card-title">Cliffs of Moher</h5>
+        <p class="card-text">            
+          At over 214m high the cliffs of Moher are a spectacular site and a must visit experience for anyone visiting
+          Co Clare or travelling the Wild Atlantic May.
+          The cliffs are located between Lahinch and Doolin ( both also worth a visit) and boasts a modern and
+          interesting Interpretive center complete with shops and restaurants.
+          For the very active there is a 12km cliff walk bringing you down to hags head to the South. From nearby Doolin
+          you can get a ferry to the Aran Islands or see the cliffs from the sea. Ireland's second most visited tourist
+          attraction never disappoints.<br>
+          For more information please visit <a href="https://www.cliffsofmoher.ie/" target="_blank"
+            rel="noopener">Cliffs of Moher</a>.
+        </p>       
+      </div>         
+    </div>
+  </div>
+      
+  <div class="col-sm-4 mb-1">
+    <div class="card border-primary">
+      <img class="card-img-top" src="{% static 'surfer.png' %}" alt="Surfer at Lahinch">
+      <div class="card-body text-primary">
+        <h5 class="card-title">Surfing in Lahinch</h5>
+        <p>Over the years Lahinch has established itself as one of Irelands foremost surfing destinations. As well as
+          impressive and consistent waves Lahinch now boasts a host of surfing clubs and schools to cater for all ages
+          and capabilites. In addition to the surfing, Lahinch is a major tourist resort with pubs, restaurants and
+          hotels/ hostels
+          close by. Lahinch is a blue flag beach on the Wild Atlantic Way and is a short drive from the cliffs of Moher
+          and Doolin.<br>
+          For more information check out <a href="https://www.theirishroadtrip.com/lahinch-beach/" target="_blank"
+            rel="noopener">Lahinch Information</a>.
+        </p>
+      </div>  
+    </div>
+  </div>   
 
-  <h1>This text is in the explore form</h1>
+  <div class="col-sm-4">
+    <div class="card border-success">
+      <img class="card-img-top" src="{% static 'burren.png' %}" alt="Surfer at Lahinch">
+      <div class="card-body text-success">
+        <h5 class="card-title">Burren Adventure Center</h5>
+        <p>The Burren Outdoor Education & Training Centre was established by Co. Clare VEC in the early 1980’s. It is
+          now run under the aegis of Limerick and Clare Education and Training Board. It is a purpose built and fully
+          equipped centre, situated amidst curved limestone hills and provides quality outdoor education and adventure
+          experiences to participants of all ages. Outdoor education promotes cooperation and teamwork, offers challenge
+          and adventure and explores potential, achievement and life long learning.
+          Hostel style accommodation is available. In one section there are 2 dormitories with 16 beds in each and 2
+          single rooms for leaders; and the other section there are 5 rooms with 4 beds and 1 twin room. Free wifi is
+          available throughout the building.          
+
+          For more information check out <a href="https://burrenoec.com/" target="_blank"
+            rel="noopener">Burren Education Centre</a>.
+        </p>
+      </div>  
+    </div>
+  </div>  
+</div>
   
+  
+ 
+
 
 {% endblock %}
