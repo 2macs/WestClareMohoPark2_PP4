@@ -64,6 +64,7 @@ def get_cancel_booking_form(request):
         mybooking = request.POST.get('booking_id')
         booking = Booking.objects.get(id=mybooking)
         booking.delete()
+        messages.warning(request, 'Booking has been deleted, please re-book if required')
         return redirect('get_booking_form')
     # Render the template with the list of Booking records
     return render(request, 'cancel_booking.html', {'bookings': bookings})
