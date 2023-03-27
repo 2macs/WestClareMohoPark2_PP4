@@ -102,7 +102,10 @@ def check_booking_dates(start_date, end_date):
     check_list = SiteCapacity.objects.all()
     for check in check_list:
         print('loop running')
-        print(f'{check.booking_date} slots used {check.slots_used}')
+        if (check.booking_date is None):
+            print(f'No booking for {check.booking_date}')
+        else:
+            print(f'{check.booking_date} slots used {check.slots_used}')
 
     # loop through the dates
     # delta = date_object2 - date_object
