@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import MakeEnquiry, Booking, MakeComment
+from .models import MakeEnquiry, Booking, MakeComment, SiteCapacity
 
 
 @admin.register(MakeEnquiry)
@@ -27,3 +27,10 @@ class CommentManage(admin.ModelAdmin):
     list_filter = ['creator', 'created_on', 'approved']
     search_fields = ['creator', 'created on', 'email']
     date_hierarchy = 'created_on'
+
+@admin.register(SiteCapacity)
+class SiteManage(admin.ModelAdmin):
+    display_all = ['booking_date', 'slots_used', 'order_status']
+    list_filter = ['booking_date', 'slots_used', 'order_status']
+    search_fields = ['booking_date', 'slots_used', 'order_status']
+    date_hierarchy = 'booking_date'

@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from .forms import EnquiryForm, BookingForm
 from django.contrib.auth.decorators import login_required
 from django.views import generic
 from mohoparkR2 import settings
-from motorhomepark.models import Booking
-from datetime import date, datetime
+from motorhomepark.models import Booking, SiteCapacity
+from datetime import date, datetime, timedelta
 
 
 # Create your views here.
@@ -26,14 +27,15 @@ def get_enquiry_form(request):
 def get_booking_form(request):
     form = BookingForm(request.POST) 
     if request.method == 'POST':
-        arrival_date = (request.POST.get('date_arrive'))
-        date_object = datetime.strptime(arrival_date, '%m/%d/%Y').date()
+        # get the arrival date and the leave date from the request
+        arrival_date = (request.POST.get('date_arrive'))        
         leave_date = request.POST.get('date_leave')
-        date_object2 = datetime.strptime(leave_date, '%m/%d/%Y').date()
-        print(f'arrival date is {date_object}, leave date is {date_object2}')
-        # check_booking_dates(arrival_date, leave_date)
+        
+        print(f'Before passing to function, arrival date is {arrival_date}, leave date is {leave_date}')
+        check_booking_dates(arrival_date, leave_date)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Thank you for your booking, we look forward to seeing you soon!')
             return redirect('/')
     else:
         initial = {'email':request.user.username}
@@ -90,11 +92,26 @@ def get_modify_booking_form(request, booking_id):
                   context)
 
 
-# def check_booking_dates(start_date, end_date):
-#     print(f'The check function was called with {start_date} and {end_date}')
-#     start_date = datetime.date(start_date)
-#     end_date = datetime.date(end_date)
-#     time_delta = datetime.timedelta(days=1)
-#     for d in rrule(DAILY, dtstart=start_date, until=end_date):
-#         print(d.strftime("%Y-%m-%d"))
+def check_booking_dates(start_date, end_date):
+    print(f'The function was called.... with {start_date} and {end_date}')
+    date_object = datetime.strptime(start_date, '%m/%d/%Y').date()
+    date_object2 = datetime.strptime(end_date, '%m/%d/%Y').date()
+    # confirm the dates are correct,
+    print(f'After processing to date objects .... with {date_object} and {date_object2}')
 
+    check_list = SiteCapacity.objects.all()
+    for check in check_list:
+        print('loop running')
+        print(f'{check.booking_date} slots used {check.slots_used}')
+
+    # loop through the dates
+    # delta = date_object2 - date_object
+    # for i in range(delta.days):
+    #     myDay = date_object + timedelta(days=i) # this is correct number of days
+    #     site_capacity = SiteCapacity.objects.get(booking_date=myDay)
+    #     space_used = site_capacity.slots_used
+    #     print(f'Date: {site_capacity}, space used :{space_used}')
+    
+
+
+    

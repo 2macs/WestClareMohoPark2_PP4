@@ -34,8 +34,8 @@ footer {
 }
 
 .btn-signup {
-    background-color: #23BBBB;
-    color: #fff;
+    background-color: #23BBBB !important;
+    color: #fff !important;
 }
 
 .btn-signup:hover,
@@ -47,3 +47,7 @@ footer {
 .site-view {        
     vertical-align: top;
   }
+
+#book-heading a {
+    color: #fff;
+}

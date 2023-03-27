@@ -43,11 +43,6 @@ class MakeComment(models.Model):
         return f"Comment {self.comment_message} by {self.creator}"
 
 
-def validate_date(date):
-    if date < timezone.now().date():
-        raise ValidationError("Arrival date cannot be in the past")
-
-
 def validate_adults(value):
     if value < 1:
         raise ValidationError("Number of adults cannot be less than 1")
@@ -56,6 +51,10 @@ def validate_adults(value):
 def validate_children(value):
     if value < 0:
         raise ValidationError("Number of children cannot be less than 0")
+
+def validate_date(date):
+    if date < timezone.now().date():
+        raise ValidationError("Arrival date cannot be in the past")
 
 
 # Model for Bookings form

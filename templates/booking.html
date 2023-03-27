@@ -7,19 +7,18 @@
 
 {% if user.is_authenticated %}
 
-<div class="container-fluid p-2 bg-primary text-white text-center">
+<div class="container-fluid p-2 bg-success text-white text-center">
   <div class="row">
     <div class="col-sm-6 offset-sm-3 text-center">
-      <h1>To make a booking please fill out the form below</h1>
-      <h3>To cancel an existing booking please click><a href="{% url 'get_cancel_booking_form' %}"> here</a></h3>
+      <h2>To make a booking please Login</h2>
+      <h3 id="book_heading">To cancel an existing booking please click><a href="{% url 'get_cancel_booking_form' %}" style="color: #f4f5f2"> here</a></h3>
     </div>
   </div>
 
 </div>
 
-<div class="container-fluid p-2 bg-primary text-white text-center">
-  <h1>Book with us!</h1>
-  <p >To make a booking please Login</p>
+<div class="container-fluid p-2 text-info text-center">
+  
   <p><i class="fa-solid fa-phone"></i> +353-87-1111999</p> 
   <p><i class="fa-regular fa-envelope"></i> claremohosite.ie</p> 
 </div>
@@ -35,7 +34,7 @@
       <form class= "book-form" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" id = "book-button" >Check Availability</button>           
+        <button type="submit" class="btn-signup">Make Booking</button>           
       </form>         
     </div>
   </div>  
@@ -45,7 +44,7 @@
 <div class="jumbotron  text-center bg-light border-rounded">
   <h1 class="display-4">Make a Booking!</h1>
   <p class="lead">In order to make a booking please sign up or login <a href="{% url 'account_login' %}"> here</a> first! Thank you!</p>
-<a class="btn btn-primary btn-lg" href="{{ '/' }}" role="button">Ok</a>
+<a class="btn btn-primary btn-lg" href="{{ '/' }}" role="button">Home</a>
   <hr class="my-4">
 </div>
 

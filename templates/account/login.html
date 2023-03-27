@@ -1,17 +1,16 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% load i18n %}
-{% load account socialaccount %}
+
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
 
-<div class="container">
+<div class="container bg-light">    
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign In" %}</h3>
-
+            <h2 class="text-primary">{% trans "Sign In" %}</h2>
             <p>{% blocktrans %}Welcome to our booking form. To make a booking please log in.If
                 you have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
                 first.{% endblocktrans %}</p>
