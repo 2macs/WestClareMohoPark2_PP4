@@ -8,17 +8,16 @@
 {% if user.is_authenticated %}
 
 <div class="container-fluid p-2 bg-success text-white text-center">
+  {% include 'messages.html' %}
   <div class="row">
     <div class="col-sm-6 offset-sm-3 text-center">
       <h2>To make a booking please Login</h2>
       <h3 id="book_heading">To cancel an existing booking please click><a href="{% url 'get_cancel_booking_form' %}" style="color: #f4f5f2"> here</a></h3>
     </div>
   </div>
-
 </div>
 
-<div class="container-fluid p-2 text-info text-center">
-  
+<div class="container-fluid p-2 text-info text-center">  
   <p><i class="fa-solid fa-phone"></i> +353-87-1111999</p> 
   <p><i class="fa-regular fa-envelope"></i> claremohosite.ie</p> 
 </div>

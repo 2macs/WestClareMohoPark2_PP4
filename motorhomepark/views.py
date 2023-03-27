@@ -27,16 +27,10 @@ def get_enquiry_form(request):
 def get_booking_form(request):
     form = BookingForm(request.POST) 
     if request.method == 'POST':
-        # get the arrival date and the leave date from the request
-        arrival_date = (request.POST.get('date_arrive'))        
-        leave_date = request.POST.get('date_leave')
-        
-        print(f'Before passing to function, arrival date is {arrival_date}, leave date is {leave_date}')
-        check_booking_dates(arrival_date, leave_date)
         if form.is_valid():
             form.save()
             messages.success(request, 'Thank you for your booking, we look forward to seeing you soon!')
-            return redirect('/')
+            return redirect('get_booking_form')
     else:
         initial = {'email':request.user.username}
         form = BookingForm(initial=initial)
@@ -92,29 +86,3 @@ def get_modify_booking_form(request, booking_id):
                   context)
 
 
-def check_booking_dates(start_date, end_date):
-    print(f'The function was called.... with {start_date} and {end_date}')
-    date_object = datetime.strptime(start_date, '%m/%d/%Y').date()
-    date_object2 = datetime.strptime(end_date, '%m/%d/%Y').date()
-    # confirm the dates are correct,
-    print(f'After processing to date objects .... with {date_object} and {date_object2}')
-
-    check_list = SiteCapacity.objects.all()
-    for check in check_list:
-        print('loop running')
-        if (check.booking_date is None):
-            print(f'No booking for {check.booking_date}')
-        else:
-            print(f'{check.booking_date} slots used {check.slots_used}')
-
-    # loop through the dates
-    # delta = date_object2 - date_object
-    # for i in range(delta.days):
-    #     myDay = date_object + timedelta(days=i) # this is correct number of days
-    #     site_capacity = SiteCapacity.objects.get(booking_date=myDay)
-    #     space_used = site_capacity.slots_used
-    #     print(f'Date: {site_capacity}, space used :{space_used}')
-    
-
-
-    
