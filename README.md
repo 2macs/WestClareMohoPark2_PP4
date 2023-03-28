@@ -28,9 +28,10 @@ The final app can be found here https://motorhome-park-pp4.herokuapp.com/
    * [Wireframes](#wireframes)
    * [Future Work](#futurework)
 3. [Technologies Used](#technology-used)
-4. [Deployment](#deployment)
-5. [Testing](#testing)
-6. [Credits](#credits)
+4. [Data Models](#data-models)
+5. [Deployment](#deployment)
+6. [Testing](#testing)
+7. [Credits](#credits)
 <br />
 <hr />
 <br />
@@ -162,7 +163,7 @@ When a booking has been modified, the user is returned to the delete / modify pa
 <br />
 
 ### WireFrames
-To see the wireframes for this app please click here [wireframe.md](/wireframe)
+To see the wireframes for this app please ctrl+click here [wireframe.md](/wireframe)
 <br />
 <br />
 
@@ -192,8 +193,63 @@ The following technologies were used in this app:
 * GitHub - used to store the projects code after being pushed from Git.
 * Cloudinary - used to host / store images used in the app. 
 * Heroku - used to host the final released web site.
+* Postgres used as database.
+<br />
+<hr />
+<br />
 
 
-## 5. Testing
-## 6. Credits
+
+## 4. Data Models
+There are 4 data models used in the app and these data models are defined in the models.py file. The models are:
+* MakeEnquiry model - this model defines the fields for Enquiry table in the Database.
+* MakeComment model - this model defines the fields for the Comment table in the Database.
+* Booking model - this model defines the fields for the booking database.
+* SiteCapacity model - this model defines the fields for the site capacity table. It holds a date and number of slots used for that date.
+
+There are 3 form classes defined and these are built from the data models defined in models.py.
+* EnquiryForm uses the MakeEnquiry model and defines fields to be visible on the form. This form is how a user posts an Enquiry.
+* CommentForm use the MakeComment model and defines fields to be visible on the form. Not released in initial release. See future work.
+* BookingForm uses the Booking model and defines fields to be visible on the form. The date_arrive field has validation to ensure that the arrival date is not sooner than booking date ( today ). Date_arrive and date_leave also have placeholders to show the user that the US date format is in use.
+
+There 7 views to render templates with forms and control redirects etc.
+* get_enquiry_form view renders the Enquiry form to the Enquire.html template. This view also sends a variable called 'sent' back to the template, 
+'sent' is used to control whether or not a success Jumbtotron is renedered to the template or not.
+* get_booking_form view renders the booking form to the booking.html template. The view also prepopulates the form email field to be the authenticated user name, a success message is output when a booking is successfully made.
+* get_index_form, get_explore_form, get_comment_form are used to render the static pages Index.html, explore.html while the comment.html will be completed as part of future work. 
+* get_cancel_booking_form view renders the cancel_booking.html template and displays booking filtered by booking_id to ensure a user only sees their own bookings.
+* get_modify_booking_form view renders the modify_booking.html template. It allows a user to change their own bookings only. 
+
+CRUD operations.
+CRUD operation requirement satisfied as follows;
+* Create - within the app the user has the capability to create both enquiries and bookings and persist them to the database.
+* READ - as part of the booking functionality, bookings filtered by booking_ID are read from the database and presented to the user.
+* UPDATE - as part of the booking functionality, a user can update/modify their own bookings.
+* DELETE - as part of the booking functionality, a user has the capability to delete their own bookings.
+
+
+
+## 5. Deployment
+
+
+
+
+
+## 6. Testing
+## 7. Credits
+* https://ordinarycoders.com/django-bootstrap
+* https://bootstrapious.com/p/bootstrap-navbar#navbar-header
+* https://www.sitepoint.com/django-send-email/
+* https://learndjango.com/tutorials/django-login-and-logout-tutorial
+* https://www.geeksforgeeks.org/datefield-django-forms/
+* https://nsikakimoh.com/blog/how-to-use-messages-in-django
+* https://stackoverflow.com/questions/35465557/how-to-apply-color-on-text-in-markdown
+* https://www.w3schools.com/bootstrap4/bootstrap_colors.asp
+* https://stackoverflow.com/questions/65337432/markdown-links-to-external-markdown-documents
+* https://stackoverflow.com/questions/28261287/how-to-change-btn-color-in-bootstrap
+* https://realpython.com/search?kind=article&kind=course&order=newest
+* https://docs.djangoproject.com/en/4.1/
+* Django 4 by example, Antonio Mele.
+* https://getbootstrap.com/docs/5.0/utilities/background/
+
 
