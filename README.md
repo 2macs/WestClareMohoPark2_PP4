@@ -166,45 +166,34 @@ To see the wireframes for this app please click here [wireframe.md](/wireframe)
 <br />
 <br />
 
+### Future Work
+<br />
 
+* Reviews / comments functionality. It was intended to include this functionality in the initial release however due to time constraints this functionality will be included in a new release. The HTML form has been prepared, there is a placeholder graphic on the form currently. Also, the data model has been defined in models.py. The intent of the functionality is to provide a means to leave reviews / testimonials on the site for future visitors to review.
+<br />
 
+* Email functionality. It was intended that the system would be able to send automated email messages on submission of an enquiry and on submission of a booking. It was also intended to send emails to the site owner informing them that these events had occurred also. After multiple attempts and following online / online tutorials this functionality consistently failed. A future attempt will be made through DJango using JSmail as GMAIL and others using higher levels of authentication seem to have complicated this. Setting up a specific password for the app was not successful either. More to come...
+<br />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* Site Capacity calculations. It was intended that when a user made a booking the system would check that there is space for each of the nights of the booking. Progress was made in that the arrive date and leave date were acquired from the request.POST object for the booking. These were then passed as parameters to a function which took the parameters, converted them to date objects and calculate a delta between the dates to establish the length of stay. Further more, code was written to identify each day in the range between arrive date and departure date. A for loop was then written to get the database entry from SiteCapacity that matches the date in question. Here a query matching error consistently occurred. I think the problem is that date format of the query did not match the date format in the table and several attempts to change the formats were not successful. Some of the code for this function can be viewed in capacity.py. More to come.....
+<br />
+<hr />
+<br />
 
 ## 3. Technologies Used
+The following technologies were used in this app:
+* HTML / CSS and a small amount of javascript were used to design and style the webpages.
+* Python3.8.11 was used for the Python coding.
+* Django 3.2.18. provides the app framework.
+* Bootstrap 5.3.0
+* Google fonts was used to import the Lato font.
+* Font Awesome provides icons throughout the site, especially Home page and Explore page.
+* Git - used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+* GitHub - used to store the projects code after being pushed from Git.
+* Cloudinary - used to host / store images used in the app. 
+* Heroku - used to host the final released web site.
+
+
 ## 5. Testing
 ## 6. Credits
 
