@@ -30,12 +30,12 @@ The final app can be found here https://motorhome-park-pp4.herokuapp.com/
 <br />
 <hr />
 <br />
-
-## User Experience UX
+<a name='User-Experience-UX'></a>
+## <span style='color:blue'>User Experience UX</span>
 
 <br />
 
-### Initial Discussion
+### <span style='color:orange'>Initial Discussion</span>
 
 As stated above, the number of motorhomes in private ownership and rented annually have increased dramatically. Waiting times for a new motorhome are between 9 months and 12 months. Many people seeking a motorhome park location are going online first and eciding based on their experience which site to stay at. 
 The key motivations for a visitor to the site are:
@@ -54,30 +54,43 @@ The key motivations for a visitor to the site are:
 * A way for people to contact the site book club with questions.
 * Schedule of fees for the year. 
 * Can the visitor make a booking online. 
+* Are there food options on-site or do you have to travel to food providers.
 
 ### User Stories
 
-#### Client Goals
+#### Visitor Goals
 
-* To be able to view the site on a range of device sizes.
-* To make it easy for potential members to find out what the book club is and how to take part.
-* To make it clear for members to see what we are currently reading and what is coming up next.
-* To allow people to be able to contact the Book Club to ask further questions or with book recommendations etc.
+* As a visitor I want to quickly see where the site is located on a map.
+* As a visitor I want to quickly see what transport options are availabale to me. 
+* As a visitor I want to quickly see the schedule of charges for the current year. 
+* As a visitor I want to quickly see what services are offered on site, including waste water disposal, showers etc. 
+* As a visitor I want to quickly be assured around quiet times on the site and see behavioural guidelines. 
+* As a visitor I want to quickly see what local attractions are close by so I can plan my day trips etc. 
+* As a visitor I want to quickly see how to contact the site owners. 
+* As a visitor I want to quickly be able to write an enquiry to the site owners and see that the enquiry has been acknowledged. 
+* As a visitor I want to quickly be able to leave a review for others to read. 
+* As a visitor I want to quickly be able to read reviews left by previous visitors. 
+* As a visitor I want to be able to make a booking online and know the booking has been received. 
+* As a visitor I want to be able to modify / change a booking online and know the booking has been updated. 
+* As a visitor I want to be able to cancel a booking online aand know the booking has been cancelled. 
 
-#### First Time Visitor Goals
+#### Site Owner Goals
 
-* I want to find out what is Bully Book Club and how I can take part.
-* I want to be able to navigate the site easily to find information.
-* I want to be able to find their Instagram profile.
+* As a site owner I want the landing page to answer most of the potential visitors immediate questions.
+* As a site owner I want access to an admin panel where I can action Enquiries, Bookings etc.
+* As a site owner I want only the admin to have access to the admin panel.
+* As a site owner I want to see a list of all enquiries in the admin panel. 
+* As a site owner I want an automated email to be sent to the visitor to acknowledge receipt of an enquiry. 
+* As a site owner I want to see a list of all non deleted bookings in the admin panel.
+* As a site owner I want the visitor to be bale craete, Update and Cancel their own bookings only. 
+* As a site owner I want to provide information to the viositor concerning attractions in the locality. 
+* As a site owner I want the visitor to be able to leave comments and reviews and see reviews left by other visitors. 
+* As a site owner I want the visitor to enjoy the website and comment on the site when talking to other motorhome owners. 
+* As a site owner I want to receive an automated email telling me I have a new enquiry in the admin panel. 
 
-#### Returning Visitor Goals
 
-* I want to find up to date information on what the book club is reading.
-* I want to be able to easily contact the book club with questions I might have.
 
-#### Frequent Visitor Goals
 
-* I want to be able to recommend a book for the book club to read.
 ## 2. Design
 ## 3. Technologies Used
 ## 5. Testing
