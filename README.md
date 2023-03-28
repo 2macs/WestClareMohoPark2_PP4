@@ -1,108 +1,85 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome 2macs,
+# West Clare Motorhome Park
+The last number of years, possibly aided by the COVID pandemic and associated travel constraints, have seen an explosion in Motorhome ownership in Ireland. There have been three fundamental responses to this growth, the first is a rise in the number of motorhome parks in Ireland or the expansion of traditional camp sites to cater for motorhomes. Secondly, slowly but surely some councils are seeing the benefit of creating Aires ( one night pull in points) in towns and villages to facilitate safe parking / waste disposal etc. Finally, some councils when faced with the sudden influx of motorhomes are reacting negatively and putting bars on parking facilities to restrict access to cars.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+When a potential customer accesses a motorhome website, especially for a place they have not been before, they have a number of questions in mind that they need answered quickly and clearly. These questions include where exactly is the motorhome park, what facilities are available, what are the site rules , how far is the site from a town etc, how much does it cost per night?  This website answers all those questions clearly on the landing page. 
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+The site then moves to answering the question - what sites of interest are nearby? Where can I daytrip to or eat etc ? The Explore page shows a non exhaustive list of famous locations in West Clare and includes links to the home websites for those places.  
 
-## Gitpod Reminders
+The contact page answers questions like , how can I contact the site owners, can I leave an enquiry? This page details the site telephone number and email address , it also incorporates an enquiry form which enables the visitor to place an enquiry.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+There is a comments page, during development, this was de-prioritised and is included in the the future work section. Right now the user will see a placeholder image.
 
-`python3 -m http.server`
+Finally there is a booking page. This page facilitates the user making a booking, deleting a booking and modifying a booking. Several attempts were made to incorporate capacity feedback i.e. the site is full on those dates please pick different dates however due to time constraints this will be added as future work. See capacity.py to direction this was going.
 
-A blue button should appear to click: _Make Public_,
+The final app can be found here https://motorhome-park-pp4.herokuapp.com/
 
-Another blue button should appear to click: _Open Browser_.
+![This is a picture of view from the park](/static/sunset_coast.PNG)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: _Make Public_,
+# Contents
+1. [User Experience UX](#User-Experience-UX)
+   * [Initial Discussion](#Initial-Discussion)
+   * [User Stories](#User-Stories)
+2. [Design](#design)
+3. [Technologies Used](#technology-used)
+4. [Deployment](#deployment)
+5. [Testing](#testing)
+6. [Credits](#credits)
+<br />
+<hr />
+<br />
 
-Another blue button should appear to click: _Open Browser_.
+## User Experience UX
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+<br />
 
-To log into the Heroku toolbelt CLI:
+### Initial Discussion
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+As stated above, the number of motorhomes in private ownership and rented annually have increased dramatically. Waiting times for a new motorhome are between 9 months and 12 months. Many people seeking a motorhome park location are going online first and eciding based on their experience which site to stay at. 
+The key motivations for a visitor to the site are:
+* Desire to book a slot online for the motorhome park.
+* Check that the site amenities / services meet the needs of the visitor.
+* Check that areas of interest are indeed close to site.
+* What are the site rules with respect to quiet times etc.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
-------
 
-## Release History
+#### Key information for the site
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+* What are the views of the sea at the site.
+* Can the visitor dispose of grey water and empty toilets on site.
+* Are there electric hookups.
+* A way for people to contact the site book club with questions.
+* Schedule of fees for the year. 
+* Can the visitor make a booking online. 
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+### User Stories
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+#### Client Goals
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+* To be able to view the site on a range of device sizes.
+* To make it easy for potential members to find out what the book club is and how to take part.
+* To make it clear for members to see what we are currently reading and what is coming up next.
+* To allow people to be able to contact the Book Club to ask further questions or with book recommendations etc.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+#### First Time Visitor Goals
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+* I want to find out what is Bully Book Club and how I can take part.
+* I want to be able to navigate the site easily to find information.
+* I want to be able to find their Instagram profile.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+#### Returning Visitor Goals
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+* I want to find up to date information on what the book club is reading.
+* I want to be able to easily contact the book club with questions I might have.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+#### Frequent Visitor Goals
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+* I want to be able to recommend a book for the book club to read.
+## 2. Design
+## 3. Technologies Used
+## 5. Testing
+## 6. Credits
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
