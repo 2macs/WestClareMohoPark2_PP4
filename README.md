@@ -227,6 +227,10 @@ CRUD operation requirement satisfied as follows;
 * UPDATE - as part of the booking functionality, a user can update/modify their own bookings.
 * DELETE - as part of the booking functionality, a user has the capability to delete their own bookings.
 
+Agile planning
+GITHUB projects and issues were used to create user stories and move these stories through the process at various stages. 
+Please see agile.md ctrl-click here [agile.md](/agile)
+
 
 
 ## 5. Deployment
