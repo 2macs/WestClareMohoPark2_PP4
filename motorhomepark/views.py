@@ -78,7 +78,8 @@ def get_modify_booking_form(request, booking_id):
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
-        return redirect('get_modify_booking_form', booking_id=booking.id)        
+            
+        return redirect('get_cancel_booking_form')        
     else:
         form = BookingForm(instance=booking)
         context = {'form': form}
