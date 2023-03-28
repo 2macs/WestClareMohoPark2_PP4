@@ -30,7 +30,7 @@ The final app can be found here https://motorhome-park-pp4.herokuapp.com/
 <br />
 <hr />
 <br />
-<a name='User-Experience-UX'></a>
+
 ## <span style='color:blue'>User Experience UX</span>
 
 <br />
