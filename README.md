@@ -234,9 +234,38 @@ Please see agile.md ctrl-click here [agile.md](/agile)
 
 
 ## 5. Deployment
+* In Heroku login and create a new app - APP_NAME, Location = Europe
+* In env.py, make sure 'import os' is at the top of the file, os.environ["DATABASE_URL"] = "ElephantSQL database URL" and os.environ["SECRET_KEY"] = "Make up your own randomSecretKey"
+* In Heroku, in settings add "DATABASE_URL" and SECRET_KEY to config.vars and paste in associated values.
+* In settings.py ensure import os at top of the file, make reference to env.py by adding if os.path.isfile("env.py"):
+import env
+* In settings.py change the SECRET_KEY to match the key in env.py by typing SECRET_KEY = os.environ.get('SECRET_KEY')
+* In settings overwrite database section and replace with DATABASES = {
+'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
+* In VSCODE, run python3 manage.py migrate.
+* Log into cloudinary and get your API Environment Variable from the dashboard.
+* In env.py: os.environ["CLOUDINARY_URL"] = "cloudinary://************************", if pasting, be careful that CLOUDINARY_URL isn't referenced twice.
+* In Heroku add os.environ["CLOUDINARY_URL"] = "cloudinary://************************" and DISABLE_COLLECTSTATIC, 1 to config.vars
+* In Heroku add PORT, 8000 to config.vars
+* In settings.py add the cloudinary libraries in this order, 'cloudinary_storage','django.contrib.staticfiles','cloudinary'.
+* In settings.py under static files place this,
+<br />
+   STATIC_URL = '/static/' <br />
+   STATICFILES_STORAGE =  'cloudinary_storage.storage.StaticHashedCloudinaryStorage'<br />
+   STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')] <br />
+   STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles') <br />
+   MEDIA_URL = '/media/' <br />
+   DEFAULT_FILE_STORAGE ='cloudinary_storage.storage.MediaCloudinaryStorage' <br />
 
+* Under BASE_DIR place TEMPLATES = [{…,'DIRS': [TEMPLATES_DIR],…,],},},]
+* Add Heroku app to Allowed_Hosts - ALLOWED_HOSTS = <br />
+["PROJ_NAME.herokuapp.com", "localhost"]
 
-
+* In gitpod(VSCODE) ensure you have templates, static and media directories at top level.
+* In gitpod create a procfile at top level of directory and enter web: gunicorn PROJ_NAME.wsgi
+* Push all changes to github. git add . , git commit -m “Deployment Commit”, git push
+* In Heroku , Deploy, ensure Deployment method is github, App connected to = github repository for the project. 
+* In Heroku , Deploy, select Manual Deploy - Deploy Branch.
 
 
 ## 6. Testing
