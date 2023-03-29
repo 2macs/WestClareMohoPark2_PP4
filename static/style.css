@@ -6,6 +6,11 @@ body {
     font-family: Lato, sans-serif;
 }
 
+.navbar-brand h1{
+    font-size: 4vw !important;
+}
+
+
 p {
     font-family:Lato, sans-serif;
 }
@@ -46,4 +51,10 @@ footer {
 
 #book-heading a {
     color: #fff;
+}
+
+@media(min-width:380px) {
+    .size-heading h1 {
+        font-size: 2vw !important;
+    }
 }
