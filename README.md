@@ -231,7 +231,9 @@ Agile planning
 GITHUB projects and issues were used to create user stories and move these stories through the process at various stages. 
 Please see agile.md ctrl-click here [agile.md](/agile)
 
-
+<br />
+<hr />
+<br />
 
 ## 5. Deployment
 * In Heroku login and create a new app - APP_NAME, Location = Europe
@@ -267,8 +269,16 @@ import env
 * In Heroku , Deploy, ensure Deployment method is github, App connected to = github repository for the project. 
 * In Heroku , Deploy, select Manual Deploy - Deploy Branch.
 
+<br />
+<hr />
+<br />
 
 ## 6. Testing
+<br />
+
+Please see testing.md ctrl-click here [testing](/testing)
+
+
 ## 7. Credits
 * https://ordinarycoders.com/django-bootstrap
 * https://bootstrapious.com/p/bootstrap-navbar#navbar-header

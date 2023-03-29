@@ -70,8 +70,27 @@ N/A only one js function defined to generate an alert.
 
 #### Lighthouse
 <br />
+Lighthouse recomended using smaller image sizes. For this release will stay with existing images and look to compress images for future releases. <br />
 
+Index Form <br />
 ![Lighthouse result for site](/static/lh-index.PNG)
+<br />
+Explore Form <br />
+
+![Lighthouse result for explore](/extra_pics/lh-explore.PNG)
+<br />
+Enquiry Form <br />
+
+![Lighthouse result for Enquiry](/extra_pics/lh-enquiry.PNG)
+<br />
+Comment Form <br />
+
+![Lighthouse result for Comment](/extra_pics/lh-comment.PNG)
+<br />
+Booking Form <br />
+
+![Lighthouse result for Booking](/extra_pics/lh-booking.PNG)
+
 <br />
 <hr />
 <br />
@@ -106,6 +125,47 @@ N/A only one js function defined to generate an alert.
 |Click Ok on message|Return to home page|Returned to home page|Pass|
 |Login as admin|Enquiry visible in admin panel|Enquiry logged to Make Enquiry panel|Pass|
 |Logout of admin|Return to home page|Returned to home page|Pass|
+|Leave a comment|   |   |  |
+|Page under construction|Image showing page under construction|Image present|Pass|
+|Manage Bookings|  |   |   |
+|User not booked in|User directed to sign in page|Sign in page appears|Pass|
+|User not logged in|Click Ok to return to home page|Returned to home page|Pass|
+|User log in not logged in before|Use francis Black,direct to sign up page|The username and or password not correct|Pass|
+|Create user francis.black@hotmail.com|use pword 11223344|Error password is fully numeric|Pass|
+|Create user francis.black@hotmail.com|use pword!11223344!|see successfully signed in message|Pass|
+|Create a clean booking , all fields|Booking created|see booking completed message|Pass|
+|Select cancel an existing booking|Should see a list of bookings by Francis Black|Booking just made is avaialable|Pass|
+|Create a booking, no fields completed|Error asking for name to be filled in|Request to fill in name field|Pass|
+|Create a booking, all fields except arrival date|Request to fill in arrival date|Request to fill out arrival date|Pass|
+|Create a booking for arrival date before today|Error saying cant arrive before current date|Error Arrival date cannot be in the past|Pass|
+|Create a booking for departure date before today|Error saying cant arrive before current date|Error Arrival date cannot be in the past|Pass|
+|Create a booking for adults less than 1|Error saying Number of adults cannot be less than 1|Error Number of adults cannot be less than 1|Pass|
+|Create a booking for children less than 0|Error saying Number of children cannot be less than 0|Error Number of children cannot be less than 0|Pass|
+|Click on To cancel an existing booking|Bookings made by Francis Black|2 bookings made by Francis Black|Pass|
+|Delete first booking|Get message confirming deletion, redirect to booking page|Message Booking deleted, please re-book if required|Pass|
+|Click on to cancel an existing booking|Deleted booking no longer on list|Deleted booking gone|Pass|
+|Stay in current form, click update booking button on remaining booking|see this specific booking on screen|Booking correct|Pass|
+|Change the value of the adults field to some other number|Number should be changed to 2|Number chnaged to 2 adults|Pass|
+|Logout Francis Black|SHould get Are you Sure message|Message received|Pass|
+|Login as admin|Successful login|Message saying login successful|Pass|
+|Navigate to admin panel|See Enquiry / booking tables avaialble| Avaialable as expected|Pass|
+|Look for enquiry just created and booking just created|Present in respective lists|Present as expected|Pass|
+
+
+#### Bugs
+<br />
+
+* The Navbar heading 'West Clare Motorhome Park (extended through the header) is not fully responsive, on very small screens parts of the heading disappears from view. I have tried to define a media query to change the font size once a certain screen size is met but this hasn't worked. Also have tried inline bootstrap to change the size but to date this hasn't worked either. Am consulting with a professional on this and will fix for next release.
+
+* When a user logs in, if another user has just logged out - Django generates a 'you have logged out' message' on the same screen as 'You have successfully logged in' . This seems to be a question asked on various forums and playing with the redirect on logout constant seems to be the fix. At this point am highlighting this and will fix / remove for next release.
+
+* On the booking form, there is validation preventing a user from inputting an arrival date earlier than the current date. At the moment there is no validation preventing a user from defining a departure date earlier than the arrival date. I spent significant time trying to figure this out and also contacted tutor support who could not help immediately. I expect this will be fixed with next release. 
+
+
+
+
+
+
 
 
 

@@ -10,10 +10,6 @@ p {
     font-family:Lato, sans-serif;
 }
 
-.navbar-brand {
-    font-size: 1.5rem !important;
-}
-
 footer {
     background-color: #525252;
     color: #fafafa;
@@ -51,9 +47,3 @@ footer {
 #book-heading a {
     color: #fff;
 }
-
-@media(max-width: 370px) {
-    .navbar-brand {
-        font-size: 16px;
-    }
-  }
