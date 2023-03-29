@@ -100,6 +100,16 @@ N/A only one js function defined to generate an alert.
 |Surfing in Lahinch link available|Open link in new tab|Opened in new tab|Pass|
 |Burren adventure center image and text available|Image is clear, text is accurate|Image and text present|Pass|
 |Burren adventure center link present|Open link in new tab|Opened in new tab|Pass|
+|Enquiry Form |  |   |   |
+|Enquiry form rendered to screen|Name, email,heading , message body|Form rendered correctly|Pass|
+|Create enquiry and save|Success message|Success message appears|Pass|
+|Click Ok on message|Return to home page|Returned to home page|Pass|
+|Login as admin|Enquiry visible in admin panel|Enquiry logged to Make Enquiry panel|Pass|
+|Logout of admin|Return to home page|Returned to home page|Pass|
+
+
+
+
 
 
 
