@@ -17,7 +17,7 @@ def get_enquiry_form(request):
         form = EnquiryForm(request.POST)
         if form.is_valid():
             form.save()
-            sent = 1            
+            sent = 1
     else:
         form = EnquiryForm()
     return render(request, 'enquire.html/', {'form': form, 'sent': sent})
@@ -25,14 +25,15 @@ def get_enquiry_form(request):
 
 # Create a booking
 def get_booking_form(request):
-    form = BookingForm(request.POST) 
+    form = BookingForm(request.POST)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            messages.success(request, 'Thank you for your booking, we look forward to seeing you soon!')
+            messages.success(request,
+                             'Booking completed, see you soon!')
             return redirect('get_booking_form')
     else:
-        initial = {'email':request.user.username}
+        initial = {'email': request.user.username}
         form = BookingForm(initial=initial)
     return render(request, 'booking.html/', {'form': form})
 
@@ -59,12 +60,13 @@ def get_cancel_booking_form(request):
 
     # Retrieve all Booking records of the logged-in user
     bookings = Booking.objects.filter(email=user_name)
-    
+
     if request.method == 'POST':
         mybooking = request.POST.get('booking_id')
         booking = Booking.objects.get(id=mybooking)
         booking.delete()
-        messages.warning(request, 'Booking has been deleted, please re-book if required')
+        messages.warning(request,
+                         'Booking deleted, please re-book if required')
         return redirect('get_booking_form')
     # Render the template with the list of Booking records
     return render(request, 'cancel_booking.html', {'bookings': bookings})
@@ -73,18 +75,16 @@ def get_cancel_booking_form(request):
 # Modify a booking
 def get_modify_booking_form(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
-    
-    if request.method == 'POST':             
+
+    if request.method == 'POST':
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
-            
-        return redirect('get_cancel_booking_form')        
+
+        return redirect('get_cancel_booking_form')
     else:
         form = BookingForm(instance=booking)
         context = {'form': form}
 
-    return render(request, 'modify_booking.html', 
+    return render(request, 'modify_booking.html',
                   context)
-
-

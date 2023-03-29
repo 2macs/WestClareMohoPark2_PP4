@@ -28,6 +28,7 @@ class CommentManage(admin.ModelAdmin):
     search_fields = ['creator', 'created on', 'email']
     date_hierarchy = 'created_on'
 
+
 @admin.register(SiteCapacity)
 class SiteManage(admin.ModelAdmin):
     display_all = ['booking_date', 'slots_used', 'order_status']

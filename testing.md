@@ -3,21 +3,16 @@
 <hr />
 <br />
 
-[AUTOMATED TESTING](#AUTOMATED-TESTING)
+1. [AUTOMATED TESTING](#AUTOMATED-TESTING)
   * [W3C Validator](#W3C-Validator)
   * [JavaScript Validator](#JavaScript-Validator)
   * [Python Validator](#Python-Validator)
   * [Lighthouse](#Lighthouse)
-2. [Design](#design)
+2. [Detailed Testing](#detailed-testing)
    * [Typography](#typography)
    * [Features](#features)
    * [Wireframes](#wireframes)
    * [Future Work](#futurework)
-3. [Technologies Used](#technology-used)
-4. [Data Models](#data-models)
-5. [Deployment](#deployment)
-6. [Testing](#testing)
-7. [Credits](#credits)
 
 ### Automated Testing
 <br />
@@ -36,37 +31,56 @@ CSS validator - No errors.
 N/A only one js function defined to generate an alert. 
 
 #### Python Validator
+<br />
 
-
-
-
-
+* Views.py <br />
+![Linter result for views.py](/static/views_linter.PNG)
 <br />
 <br />
+
+* urls.py <br />
+![Linter result for urls.py](/static/urls-linter.PNG)
+<br />
+<br />
+
+* models.py <br />
+![Linter result for models.py](/static/models-linter.PNG)
+<br />
+<br />
+
+* forms.py <br />
+![Linter result for forms.py](/static/forms-linter.PNG)
+<br />
+<br />
+
+* Date_check.py and capacity.py not tested as not used. Potentially used in the future.
+<br />
+<br />
+
+* apps.py <br />
+![Linter result for apps.py](/static/apps-linter.PNG)
+<br />
+<br />
+
+* admin.py <br />
+![Linter result for admin.py](/static/admin-linter.PNG)
+<br />
+<br />
+
+
+
+
 
 #### Lighthouse
 <br />
-![Lighthouse result for Index.html](/static/lh-index.PNG)
+
+![Lighthouse result for site](/static/lh-index.PNG)
+<br />
+<hr />
+<br />
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Testing Detailed
+### Detailed Testing
 
 | Test                  | Expected       | Actual        |Result            |
 |-----------------------|----------------|---------------|------------------|     

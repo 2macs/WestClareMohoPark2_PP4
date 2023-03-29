@@ -22,12 +22,12 @@ def validate_date(date):
 
 
 class BookingForm(forms.ModelForm):
-    date_arrive = forms.DateField(validators=[validate_date],                           
+    date_arrive = forms.DateField(validators=[validate_date],
                                   widget=forms.TextInput
                                   (attrs={'class': 'form-control',
                                    'placeholder': 'mm/dd/yyyy'}))
-    
-    date_leave = forms.DateField(validators=[validate_date],                           
+
+    date_leave = forms.DateField(validators=[validate_date],
                                  widget=forms.TextInput
                                  (attrs={'class': 'form-control',
                                   'placeholder': 'mm/dd/yyyy'}))
