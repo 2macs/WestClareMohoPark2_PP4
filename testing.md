@@ -27,6 +27,9 @@ The following HTML pages were tested:
 * Index.html - No errors or warnings to show.
 * Explore.html - No errors or warnings to show.
 * Enquire.html - No errors or warnings to show.
+* Comment.html - No errors or warnings to show.
+* Booking.html - No errors or warnings to show.
+* 
 
 
 <br />

@@ -5,13 +5,13 @@
 <div class="container">
     {% include 'messages-warning.html' %}
     <div class="row">
-        <div class = "col-md-8 offset-md-2 center-text">
-            <h1>Modify Booking</h1>         
+        <div class = "col-md-8 offset-md-2 center-text bg-light">
+            <h1 class="text-primary">Modify Booking</h1>         
             
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">Save</button>
+                <button type="submit" class="btn-signup">Save</button>
             </form>            
         </div>
     </div>

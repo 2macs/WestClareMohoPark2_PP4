@@ -40,8 +40,8 @@ footer {
 
 .btn-signup:hover,
 .btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
+    background-color: #fff !important;
+    color: #23BBBB !important;
 }
 
 .site-view {        
