@@ -51,3 +51,9 @@ footer {
 #book-heading a {
     color: #fff;
 }
+
+@media(max-width: 370px) {
+    .navbar-brand {
+        font-size: 16px;
+    }
+  }
