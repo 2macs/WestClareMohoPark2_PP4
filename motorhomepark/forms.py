@@ -21,18 +21,17 @@ def validate_date(date):
         raise ValidationError("Arrival date cannot be in the past")
 
 
-class BookingForm(forms.ModelForm):
-    date_arrive = forms.DateField(validators=[validate_date],
-                                  widget=forms.TextInput
-                                  (attrs={'class': 'form-control',
-                                   'placeholder': 'mm/dd/yyyy'}))
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
-    date_leave = forms.DateField(validators=[validate_date],
-                                 widget=forms.TextInput
-                                 (attrs={'class': 'form-control',
-                                  'placeholder': 'mm/dd/yyyy'}))
+
+class BookingForm(forms.ModelForm):
 
     class Meta:
         model = Booking
         fields = ['name', 'email', 'date_arrive', 'date_leave', 'adults_num',
                   'child_num']
+        widgets = {
+            'date_arrive': DateInput(),
+            'date_leave': DateInput(),
+        }

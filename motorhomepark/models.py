@@ -61,11 +61,10 @@ def validate_date(date):
 
 # Model for Bookings form
 class Booking(models.Model):
-
     name = models.CharField(max_length=75)
     email = models.EmailField()
     date_arrive = models.DateField(blank=False, validators=[validate_date])
-    date_leave = models.DateField(blank=False)
+    date_leave = models.DateField(blank=False, validators=[validate_date])
     adults_num = models.IntegerField(blank=False, validators=[validate_adults])
     child_num = models.IntegerField(blank=False,
                                     validators=[validate_children])

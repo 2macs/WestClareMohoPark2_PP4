@@ -11,7 +11,9 @@ from datetime import date, datetime, timedelta
 # Create your views here.
 # Templates are Index, booking,enquire,explore
 
+#  login not required to create an enquiry
 def get_enquiry_form(request):
+    """ Create an enquiry and submit form """
     sent = 0
     if request.method == 'POST':
         form = EnquiryForm(request.POST)
@@ -23,8 +25,10 @@ def get_enquiry_form(request):
     return render(request, 'enquire.html/', {'form': form, 'sent': sent})
 
 
-# Create a booking
+# Create a booking, login is required
+@login_required
 def get_booking_form(request):
+    """ A view to create a booking """
     form = BookingForm(request.POST)
     if request.method == 'POST':
         if form.is_valid():
@@ -39,23 +43,23 @@ def get_booking_form(request):
 
 
 def get_index_form(request):
+    """ A view to display the home page """
     return render(request, 'index.html/')
 
 
 def get_explore_form(request):
+    """ A view to display the Explore page """
     return render(request, 'explore.html')
-
-
-def get_comment_form(request):
-    return render(request, 'comment.html')
 
 
 def get_confirm_form(request):
     return render(request, 'confirm.html')
 
 
-# Delete a booking
+# Delete a booking, login is required
+@login_required
 def get_cancel_booking_form(request):
+    """ A view to delete a booking """
     user_name = request.user.username
 
     # Retrieve all Booking records of the logged-in user
@@ -73,6 +77,7 @@ def get_cancel_booking_form(request):
 
 
 # Modify a booking
+@login_required
 def get_modify_booking_form(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
 
