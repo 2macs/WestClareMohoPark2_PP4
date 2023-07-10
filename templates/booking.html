@@ -14,16 +14,12 @@
       <h1 class="text-center text-black">Bookings for customer {{ user.username }}</h1>
       <ul>
       {% for booking in bookings %}
-          <li>
-              {{ booking }}
-              <form method="post" action="{% url 'get_cancel_booking_form' %}">
-                  {% csrf_token %}
-                  <p style="color:red;"><strong>Are you sure you want to delete? This cannot be undone!</strong></p>
-                  <input type="hidden" name="booking_id" value="{{ booking.id }}">
-                  <button type="submit" class="btn-signup mb-1">Delete</button>                
-              </form>
-              <button class="btn-signup" type="submit"><a href="{% url 'get_modify_booking_form' booking.id %}">Update booking</a></button>              
-          </li>
+          <h5>{{ booking }}
+              <small class="ml-3">
+                <a href="{% url 'get_modify_booking_form' booking.id %}">  Edit</a> |
+                <a class="text-danger" href="{% url 'cancel_booking' booking.id %}">  Delete</a>
+            </small>                          
+          </h5>
       {% empty %}
           <h3>No existing bookings for customer {{ user.username }}</h3>
       {% endfor %}

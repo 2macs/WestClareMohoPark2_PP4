@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib import messages
 from .forms import EnquiryForm, BookingForm
 from django.contrib.auth.decorators import login_required
@@ -66,38 +66,32 @@ def get_confirm_form(request):
 
 # Delete a booking, login is required
 @login_required
-def get_cancel_booking_form(request):
+def cancel_booking(request, booking_id):
     """ A view to delete a booking """
-    user_name = request.user.username
+    booking = get_object_or_404(Booking, pk=booking_id)
+    print(request.user)
+    print(booking.name)
+    if request.user != booking.name:
+        messages.error(request, "Sorry, only booking owners can do that.")
+        return redirect(reverse("booking"))
 
-    # Retrieve all Booking records of the logged-in user
-    bookings = Booking.objects.filter(email=user_name)
-
-    if request.method == 'POST':
-        mybooking = request.POST.get('booking_id')
-        booking = Booking.objects.get(id=mybooking)
-        booking.delete()
-        messages.warning(request,
-                         'Booking deleted, please re-book if required')
-        return redirect('get_booking_form')
-    # Render the template with the list of Booking records
-    return render(request, 'cancel_booking.html', {'bookings': bookings})
+    booking.delete()
+    messages.success(request, "Booking deleted!")
+    return redirect(reverse("booking"))
 
 
 # Modify a booking
 @login_required
 def get_modify_booking_form(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id)
+    booking = get_object_or_404(Booking, pk=booking_id)
 
     if request.method == 'POST':
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
-
-        return redirect('get_cancel_booking_form')
+            messages.success(request, "Booking successfully updated")
     else:
         form = BookingForm(instance=booking)
         context = {'form': form}
-
     return render(request, 'modify_booking.html',
                   context)
