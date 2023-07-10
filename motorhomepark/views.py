@@ -72,12 +72,13 @@ def cancel_booking(request, booking_id):
     print(request.user)
     print(booking.name)
     if request.user != booking.name:
+        print('Users are not the same')
         messages.error(request, "Sorry, only booking owners can do that.")
-        return redirect(reverse("booking"))
-
-    booking.delete()
-    messages.success(request, "Booking deleted!")
-    return redirect(reverse("booking"))
+        return redirect(reverse("get_index_form"))
+    else:
+        booking.delete()
+        messages.success(request, "Booking deleted!")
+    return redirect(reverse("get_booking_form"))
 
 
 # Modify a booking
@@ -90,6 +91,7 @@ def get_modify_booking_form(request, booking_id):
         if form.is_valid():
             form.save()
             messages.success(request, "Booking successfully updated")
+            return redirect("get_booking_form")
     else:
         form = BookingForm(instance=booking)
         context = {'form': form}

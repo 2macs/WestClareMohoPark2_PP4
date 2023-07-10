@@ -8,6 +8,7 @@
 {% if user.is_authenticated %}
 
 <div class="container-fluid p-2 text-info text-center">  
+  {% include 'messages.html' %}
   <!--Show user bookings, enable edit and delete-->
   <div class="row">
     <div class="col-md-6">
