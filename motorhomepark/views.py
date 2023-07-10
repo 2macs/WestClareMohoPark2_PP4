@@ -46,7 +46,8 @@ def get_booking_form(request):
     return render(request,
                   'booking.html/',
                   {'form': form,
-                   'bookings': bookings})
+                   'bookings': bookings
+                   })
 
 
 def get_index_form(request):
