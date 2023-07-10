@@ -71,7 +71,7 @@ def cancel_booking(request, booking_id):
     booking = get_object_or_404(Booking, pk=booking_id)
     print(request.user)
     print(booking.name)
-    if request.user != booking.name:
+    if str(request.user) != booking.name:
         print('Users are not the same')
         messages.error(request, "Sorry, only booking owners can do that.")
         return redirect(reverse("get_index_form"))
