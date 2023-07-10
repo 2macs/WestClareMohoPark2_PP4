@@ -29,6 +29,10 @@ def get_enquiry_form(request):
 @login_required
 def get_booking_form(request):
     """ A view to create a booking """
+    # Retrieve all Booking records of the logged-in user
+    user_name = request.user.username
+    bookings = Booking.objects.filter(name=user_name)
+
     form = BookingForm(request.POST)
     if request.method == 'POST':
         if form.is_valid():
@@ -37,9 +41,12 @@ def get_booking_form(request):
                              'Booking completed, see you soon!')
             return redirect('get_booking_form')
     else:
-        initial = {'email': request.user.username}
+        initial = {'name': request.user.username}
         form = BookingForm(initial=initial)
-    return render(request, 'booking.html/', {'form': form})
+    return render(request,
+                  'booking.html/',
+                  {'form': form,
+                   'bookings': bookings})
 
 
 def get_index_form(request):
