@@ -21,7 +21,7 @@ The following HTML pages were tested:
 * Enquire.html - No errors or warnings to show.
 * Comment.html - No errors or warnings to show.
 * Booking.html - No errors or warnings to show.
-* Modify_booking.html - One error on line 66, "anchor tag cannot be a child of button tag". Functionality works and some sites recommend this approach. Fix for next release.
+* Modify_booking.html - There was an error on initial submission, no error present now
 CSS validator - No errors.
 
 #### Javascript validator
