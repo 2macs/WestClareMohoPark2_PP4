@@ -2,9 +2,6 @@
 
 {% block content %}
 
-{{user.username}}
-
-
 {% if user.is_authenticated %}
 
 <div class="container-fluid p-2 text-info text-center">  
@@ -33,7 +30,7 @@
     </div>
     <div class="col-12 col-md-6 bg-light text-black text-center">
       <h3 >Online Booking Form</h1>
-      <form class= "book-form" method="POST">
+      <form class="book-form" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn-signup">Make Booking</button>           
