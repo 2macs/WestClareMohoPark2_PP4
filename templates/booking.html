@@ -11,14 +11,17 @@
   {% include 'messages.html' %}
   <!--Show user bookings, enable edit and delete-->
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-12 col-md-6">
       <h1 class="text-center text-black">Bookings for customer {{ user.username }}</h1>
       <ul>
       {% for booking in bookings %}
           <h5>{{ booking }}
-              <small class="ml-3">
-                <a href="{% url 'get_modify_booking_form' booking.id %}">  Edit</a> |
-                <a class="text-danger" href="{% url 'cancel_booking' booking.id %}">  Delete</a>
+          <p class="text-left text-success">Arrival date: {{ booking.date_arrive}}</p>
+          <p class="text-left text-success">Adults: {{ booking.adults_num }}</p>
+          <p class="text-left text-success">Children: {{ booking.child_num }}</p>
+            <small class="ml-3">
+              <a href="{% url 'get_modify_booking_form' booking.id %}">  Edit</a> |
+              <a class="text-danger" href="{% url 'cancel_booking' booking.id %}">  Delete</a>
             </small>                          
           </h5>
       {% empty %}
@@ -26,7 +29,7 @@
       {% endfor %}
       </ul>
     </div>
-    <div class="col-md-6 bg-light text-black text-center">
+    <div class="col-12 col-md-6 bg-light text-black text-center">
       <h3 >Online Booking Form</h1>
       <form class= "book-form" method="POST">
         {% csrf_token %}

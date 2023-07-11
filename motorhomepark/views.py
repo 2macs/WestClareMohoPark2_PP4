@@ -69,12 +69,9 @@ def get_confirm_form(request):
 def cancel_booking(request, booking_id):
     """ A view to delete a booking """
     booking = get_object_or_404(Booking, pk=booking_id)
-    print(request.user)
-    print(booking.name)
     if str(request.user) != booking.name:
-        print('Users are not the same')
         messages.error(request, "Sorry, only booking owners can do that.")
-        return redirect(reverse("get_index_form"))
+        return redirect(reverse("get_booking_form"))
     else:
         booking.delete()
         messages.success(request, "Booking deleted!")
@@ -85,7 +82,9 @@ def cancel_booking(request, booking_id):
 @login_required
 def get_modify_booking_form(request, booking_id):
     booking = get_object_or_404(Booking, pk=booking_id)
-
+    if str(request.user) != booking.name:
+        messages.error(request, "Sorry, unauthorised access.")
+        return redirect(reverse("get_booking_form"))
     if request.method == 'POST':
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
