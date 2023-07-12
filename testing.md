@@ -150,6 +150,9 @@ Booking Form <br />
 |Login as admin|Successful login|Message saying login successful|Pass|
 |Navigate to admin panel|See Enquiry / booking tables avaialble| Avaialable as expected|Pass|
 |Look for enquiry just created and booking just created|Present in respective lists|Present as expected|Pass|
+|Check a user cannot access another user booking from url|Message saying user is not authorised|As expected|Pass|
+|Booking management page divided into user bookings and new booking form|Divided and responsive|As expected|Pass|
+|Booking delete functionality works from booking page|Booking deleted, not appear on list|As expected|Pass|
 
 
 #### Bugs
